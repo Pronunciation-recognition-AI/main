@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center">
+
+    <!-- 텍스트를 보여주는 텍스트뷰 -->
+    <TextView
+        android:id="@+id/tvRecognizedSpeech"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="#EEEEEE"
+        android:text="텍스트"
+        android:textSize="24sp"
+        android:textColor="#000000" />
+
+    <!-- 버튼을 담는 레이아웃 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="16dp">
+
+        <!-- 녹음 버튼 -->
+        <Button
+            android:id="@+id/btnRecord"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:text="녹음"
+            android:background="#AAAAAA"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:layout_margin="8dp" />
+
+        <!-- TTS 버튼 -->
+        <Button
+            android:id="@+id/btnTTS"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:text="TTS"
+            android:background="#AAAAAA"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:layout_margin="8dp" />
+    </LinearLayout>
+
+</LinearLayout>
