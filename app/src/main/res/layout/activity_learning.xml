@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:gravity="center">
 
     <!-- 낱말을 표시하는 텍스트뷰 -->
     <TextView
@@ -20,7 +20,8 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="center">
 
         <!-- 이전 버튼 -->
         <Button
@@ -46,5 +47,13 @@
             android:text="다음"
             android:layout_margin="8dp" />
     </LinearLayout>
+
+    <!-- 홈으로 돌아가는 버튼 -->
+    <Button
+        android:id="@+id/btnHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="홈으로 돌아가기"
+        android:layout_marginTop="30dp" />
 
 </LinearLayout>

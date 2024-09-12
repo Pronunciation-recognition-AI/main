@@ -1,5 +1,6 @@
 package com.example.hackathon_project
 
+import android.content.Intent
 import android.media.MediaRecorder
 import android.os.Bundle
 import android.widget.Button
@@ -13,13 +14,11 @@ class LearningActivity : AppCompatActivity() {
     private lateinit var btnPrevious: Button
     private lateinit var btnNext: Button
     private lateinit var btnRecord: Button
+    private lateinit var btnHome: Button
 
     // 낱말 리스트
     private val words = listOf("안녕하세요", "감사합니다", "네", "아니요")
     private var currentWordIndex = 0
-
-    private var mediaRecorder: MediaRecorder? = null
-    private var isRecording = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,11 +29,12 @@ class LearningActivity : AppCompatActivity() {
         btnPrevious = findViewById(R.id.btnPrevious)
         btnNext = findViewById(R.id.btnNext)
         btnRecord = findViewById(R.id.btnRecord)
+        btnHome = findViewById(R.id.btnHome)
 
         // 현재 낱말 표시
         wordTextView.text = words[currentWordIndex]
 
-        // 이전 버튼 클릭 시
+        // 이전 버튼 클릭 이벤트
         btnPrevious.setOnClickListener {
             if (currentWordIndex > 0) {
                 currentWordIndex--
@@ -44,7 +44,7 @@ class LearningActivity : AppCompatActivity() {
             }
         }
 
-        // 다음 버튼 클릭 시
+        // 다음 버튼 클릭 이벤트
         btnNext.setOnClickListener {
             if (currentWordIndex < words.size - 1) {
                 currentWordIndex++
@@ -54,44 +54,16 @@ class LearningActivity : AppCompatActivity() {
             }
         }
 
-        // 녹음 버튼 클릭 시
+        // 녹음 버튼 클릭 이벤트 (녹음 기능 구현 예시)
         btnRecord.setOnClickListener {
-            if (isRecording) {
-                stopRecording()
-                Toast.makeText(this, "녹음이 완료되었습니다.", Toast.LENGTH_SHORT).show()
-            } else {
-                startRecording()
-                Toast.makeText(this, "녹음 중...", Toast.LENGTH_SHORT).show()
-            }
+            Toast.makeText(this, "녹음 기능은 구현 예정입니다.", Toast.LENGTH_SHORT).show()
         }
-    }
 
-    // 녹음 시작 함수
-    private fun startRecording() {
-        mediaRecorder = MediaRecorder().apply {
-            setAudioSource(MediaRecorder.AudioSource.MIC)
-            setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP)
-            setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB)
-            setOutputFile("${externalCacheDir?.absolutePath}/learning_recording.3gp")
-            prepare()
-            start()
+        // 홈 버튼 클릭 이벤트
+        btnHome.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            finish()  // 현재 액티비티 종료
         }
-        isRecording = true
-    }
-
-    // 녹음 종료 함수
-    private fun stopRecording() {
-        mediaRecorder?.apply {
-            stop()
-            release()
-        }
-        mediaRecorder = null
-        isRecording = false
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        mediaRecorder?.release()
-        mediaRecorder = null
     }
 }
