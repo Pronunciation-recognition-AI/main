@@ -27,11 +27,16 @@
             android:name=".RegisterActivity"
             android:exported="true"
             android:label="회원가입" />
-
         <activity
             android:name=".HomeActivity"
             android:exported="true"
             android:label="홈" />
+        <activity
+            android:name=".SpeechActivity"
+            android:exported="true"
+            android:label="음성 인식" />
+
+
     </application>
 
 </manifest>
