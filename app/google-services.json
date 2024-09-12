@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "877790695652",
+    "firebase_url": "https://speety-4d4e1-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "speety-4d4e1",
+    "storage_bucket": "speety-4d4e1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:877790695652:android:47fd4be915dd800976dcf1",
+        "android_client_info": {
+          "package_name": "com.example.hackathon_project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKrmAkVnAU8nK4ZSZLV1KCFHRSQ7xA8zo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

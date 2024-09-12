@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Pressed 상태일 때의 배경 -->
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#FFF5F5F5" /> <!-- 약간의 배경 색상 -->
+            <stroke android:width="2dp" android:color="@color/brown" /> <!-- 주황색 외곽선 -->
+            <corners android:radius="12dp" /> <!-- 모서리를 둥글게 설정 -->
+        </shape>
+    </item>
+
+    <!-- 기본 상태일 때의 배경 -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent" /> <!-- 투명한 배경 -->
+            <stroke android:width="2dp" android:color="@color/brown" /> <!-- 주황색 외곽선 -->
+            <corners android:radius="12dp" /> <!-- 모서리를 둥글게 설정 -->
+        </shape>
+    </item>
+</selector>
