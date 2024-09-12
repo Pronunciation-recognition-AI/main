@@ -14,9 +14,18 @@ class HomeActivity : AppCompatActivity() {
         // 음성 인식 버튼 초기화
         val btnSpeechRecognition = findViewById<Button>(R.id.btnSpeechRecognition)
 
+        // 학습하기 버튼 초기화
+        val btnLearning = findViewById<Button>(R.id.btnLearning)
+
         // 음성 인식 버튼 클릭 시 SpeechActivity로 이동
         btnSpeechRecognition.setOnClickListener {
             val intent = Intent(this, SpeechActivity::class.java)
+            startActivity(intent)
+        }
+
+        // 학습하기 버튼 클릭 시 LearningActivity로 이동
+        btnLearning.setOnClickListener {
+            val intent = Intent(this, LearningActivity::class.java)
             startActivity(intent)
         }
     }

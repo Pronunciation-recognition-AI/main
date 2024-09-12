@@ -35,6 +35,10 @@
             android:name=".SpeechActivity"
             android:exported="true"
             android:label="음성 인식" />
+        <activity
+            android:name=".LearningActivity"
+            android:exported="true"
+            android:label="음성 학습" />
 
 
     </application>
