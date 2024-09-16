@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     id("com.google.gms.google-services")
+    id("com.chaquo.python")  // Chaquopy 플러그인을 모듈에 적용
 }
 
 android {
@@ -11,8 +12,17 @@ android {
 
     defaultConfig {
         applicationId = "com.example.hackathon_project"
+
+        // 최소 SDK 버전 설정
         minSdk = 26
         targetSdk = 34
+
+        // NDK 설정을 추가하여 지원할 ABI 목록을 지정
+        ndk {
+            abiFilters += listOf("arm64-v8a", "x86_64")
+        }
+
+
         versionCode = 1
         versionName = "1.0"
 
@@ -48,6 +58,12 @@ android {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
+    }
+}
+
+chaquopy {
+    defaultConfig {
+        buildPython("/usr/local/bin/python3.8")  // 정확한 Python 3.8 경로를 지정
     }
 }
 
