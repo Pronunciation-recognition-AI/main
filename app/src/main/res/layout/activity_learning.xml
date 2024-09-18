@@ -48,6 +48,14 @@
             android:layout_margin="8dp" />
     </LinearLayout>
 
+    <!-- 학습 버튼  -->
+    <Button
+        android:id="@+id/btnLearn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="학습"
+        android:layout_marginTop="20dp" />
+
     <!-- 홈으로 돌아가는 버튼 -->
     <Button
         android:id="@+id/btnHome"

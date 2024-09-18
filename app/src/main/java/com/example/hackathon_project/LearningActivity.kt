@@ -26,6 +26,7 @@ class LearningActivity : AppCompatActivity() {
     private lateinit var btnPrevious: Button
     private lateinit var btnNext: Button
     private lateinit var btnRecord: Button
+    private lateinit var btnLearn: Button
     private lateinit var btnHome: Button
 
     private val REQUEST_RECORD_AUDIO_PERMISSION = 200
@@ -54,6 +55,7 @@ class LearningActivity : AppCompatActivity() {
         btnPrevious = findViewById(R.id.btnPrevious)
         btnNext = findViewById(R.id.btnNext)
         btnRecord = findViewById(R.id.btnRecord)
+        btnLearn = findViewById(R.id.btnLearn)
         btnHome = findViewById(R.id.btnHome)
 
         // 현재 낱말 표시
@@ -91,6 +93,11 @@ class LearningActivity : AppCompatActivity() {
                     Toast.makeText(this, "녹음 권한이 필요합니다.", Toast.LENGTH_SHORT).show()
                 }
             }
+        }
+
+        // 버튼 클릭 리스너 설정
+        btnLearn.setOnClickListener {
+            Toast.makeText(this, "학습 중입니다..", Toast.LENGTH_SHORT).show()
         }
 
         // 홈 버튼 클릭 이벤트

@@ -30,16 +30,6 @@ class MainActivity : AppCompatActivity() {
 
         loginButton.setOnClickListener { loginUser() }
         registerButton.setOnClickListener { registerUser() }
-
-        if (! Python.isStarted()) {
-            Python.start(AndroidPlatform(this))
-        }
-
-        val python = Python.getInstance()
-        val pyObject = python.getModule("script") // hello.py라는 Python 파일을 참조
-
-        val result = pyObject.callAttr("greet", "world!!") // greet 함수 호출
-        println(result.toString())
     }
 
     override fun onStart() {
