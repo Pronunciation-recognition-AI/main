@@ -1,4 +1,4 @@
-# PROGMATISM Project
+# PROGMATISM Project 소개
 
 ---
 
