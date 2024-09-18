@@ -1,12 +1,24 @@
 package com.example.hackathon_project
 
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.media.AudioFormat
+import android.media.AudioRecord
 import android.media.MediaRecorder
 import android.os.Bundle
+import android.os.Environment
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
+import java.nio.ByteBuffer
+import java.nio.ByteOrder
+import kotlin.math.min
 
 class LearningActivity : AppCompatActivity() {
 
@@ -16,13 +28,26 @@ class LearningActivity : AppCompatActivity() {
     private lateinit var btnRecord: Button
     private lateinit var btnHome: Button
 
+    private val REQUEST_RECORD_AUDIO_PERMISSION = 200
+
     // 낱말 리스트
     private val words = listOf("안녕하세요", "감사합니다", "네", "아니요")
     private var currentWordIndex = 0
 
+    // AudioRecord 관련 변수
+    private var isRecording = false
+    private lateinit var audioRecord: AudioRecord
+    private lateinit var outputFile: String
+    private lateinit var recordingThread: Thread
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_learning)
+
+        // 권한 확인 및 요청
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.RECORD_AUDIO), REQUEST_RECORD_AUDIO_PERMISSION)
+        }
 
         // UI 요소 초기화
         wordTextView = findViewById(R.id.wordTextView)
@@ -54,9 +79,18 @@ class LearningActivity : AppCompatActivity() {
             }
         }
 
-        // 녹음 버튼 클릭 이벤트 (녹음 기능 구현 예시)
+        // 녹음 버튼 클릭 이벤트
         btnRecord.setOnClickListener {
-            Toast.makeText(this, "녹음 기능은 구현 예정입니다.", Toast.LENGTH_SHORT).show()
+            if (isRecording) {
+                stopRecording()
+            } else {
+                // 권한 확인 후 녹음 시작
+                if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) {
+                    startRecording()
+                } else {
+                    Toast.makeText(this, "녹음 권한이 필요합니다.", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
 
         // 홈 버튼 클릭 이벤트
@@ -64,6 +98,141 @@ class LearningActivity : AppCompatActivity() {
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
             finish()  // 현재 액티비티 종료
+        }
+    }
+
+    private fun startRecording() {
+        val sampleRate = 44100  // 44.1kHz 샘플 레이트
+        val channelConfig = AudioFormat.CHANNEL_IN_MONO
+        val audioFormat = AudioFormat.ENCODING_PCM_16BIT
+        val bufferSize = AudioRecord.getMinBufferSize(sampleRate, channelConfig, audioFormat) * 2
+
+        // AudioRecord 객체 초기화
+        audioRecord = AudioRecord(MediaRecorder.AudioSource.MIC, sampleRate, channelConfig, audioFormat, bufferSize)
+
+        val outputDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC)
+        if (!outputDir.exists()) {
+            outputDir.mkdirs()
+        }
+        outputFile = "${outputDir.absolutePath}/${words[currentWordIndex]}_${System.currentTimeMillis()}.wav"
+        val outputStream = FileOutputStream(outputFile)
+
+        val buffer = ByteArray(bufferSize)
+
+        // 먼저 더미 헤더를 작성하고 파일에 기록
+        val header = createWavFileHeader(0, 0, sampleRate, 1, 16)
+        outputStream.write(header)
+
+        // 녹음 시작
+        audioRecord.startRecording()
+        isRecording = true
+        btnRecord.text = "녹음 중지"
+        Toast.makeText(this@LearningActivity, "녹음이 시작되었습니다.", Toast.LENGTH_SHORT).show()
+
+        // 녹음 스레드 실행
+        recordingThread = Thread {
+            try {
+                var totalAudioLen: Long = 0
+                val headerSize = 44  // WAV 헤더 크기
+
+                while (isRecording) {
+                    val read = audioRecord.read(buffer, 0, buffer.size)
+                    if (read > 0) {
+                        outputStream.write(buffer, 0, read)
+                        totalAudioLen += read
+                        // 읽은 바이트 수를 로그로 출력
+                        println("녹음된 데이터 길이: $read 바이트")
+                    } else {
+                        println("녹음 데이터 없음.")
+                    }
+                }
+
+                // 총 데이터 길이와 파일 크기를 계산
+                val totalDataLen = totalAudioLen + headerSize - 8
+                updateWavHeader(outputFile, totalAudioLen, totalDataLen, sampleRate, 1, 16)
+                outputStream.close()
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+        }
+        recordingThread.start()
+    }
+
+    private fun stopRecording() {
+        // 녹음 중지
+        isRecording = false
+        audioRecord.stop()
+        audioRecord.release()
+
+        // 녹음 스레드 종료 대기
+        recordingThread.join()
+
+        Toast.makeText(this, "녹음이 완료되었습니다. 파일 저장 위치: $outputFile", Toast.LENGTH_LONG).show()
+        btnRecord.text = "녹음 시작"
+    }
+
+    // WAV 파일 헤더 생성
+    private fun createWavFileHeader(totalAudioLen: Long, totalDataLen: Long, longSampleRate: Int, channels: Int, bitRate: Int): ByteArray {
+        val header = ByteArray(44)
+        val sampleRate = longSampleRate
+        val byteRate = bitRate * sampleRate * channels / 8
+
+        header[0] = 'R'.toByte() // RIFF/WAVE header
+        header[1] = 'I'.toByte()
+        header[2] = 'F'.toByte()
+        header[3] = 'F'.toByte()
+        header[4] = (totalDataLen and 0xff).toByte()
+        header[5] = (totalDataLen shr 8 and 0xff).toByte()
+        header[6] = (totalDataLen shr 16 and 0xff).toByte()
+        header[7] = (totalDataLen shr 24 and 0xff).toByte()
+        header[8] = 'W'.toByte() // WAVE
+        header[9] = 'A'.toByte()
+        header[10] = 'V'.toByte()
+        header[11] = 'E'.toByte()
+        header[12] = 'f'.toByte() // 'fmt ' chunk
+        header[13] = 'm'.toByte()
+        header[14] = 't'.toByte()
+        header[15] = ' '.toByte()
+        header[16] = 16 // 4 bytes: size of 'fmt ' chunk
+        header[17] = 0
+        header[18] = 0
+        header[19] = 0
+        header[20] = 1 // format = 1
+        header[21] = 0
+        header[22] = channels.toByte()
+        header[23] = 0
+        header[24] = (sampleRate and 0xff).toByte()
+        header[25] = (sampleRate shr 8 and 0xff).toByte()
+        header[26] = (sampleRate shr 16 and 0xff).toByte()
+        header[27] = (sampleRate shr 24 and 0xff).toByte()
+        header[28] = (byteRate and 0xff).toByte()
+        header[29] = (byteRate shr 8 and 0xff).toByte()
+        header[30] = (byteRate shr 16 and 0xff).toByte()
+        header[31] = (byteRate shr 24 and 0xff).toByte()
+        header[32] = (channels * bitRate / 8).toByte() // block align
+        header[33] = 0
+        header[34] = bitRate.toByte() // bits per sample
+        header[35] = 0
+        header[36] = 'd'.toByte() // data
+        header[37] = 'a'.toByte()
+        header[38] = 't'.toByte()
+        header[39] = 'a'.toByte()
+        header[40] = (totalAudioLen and 0xff).toByte()
+        header[41] = (totalAudioLen shr 8 and 0xff).toByte()
+        header[42] = (totalAudioLen shr 16 and 0xff).toByte()
+        header[43] = (totalAudioLen shr 24 and 0xff).toByte()
+        return header
+    }
+
+    private fun updateWavHeader(filePath: String, totalAudioLen: Long, totalDataLen: Long, longSampleRate: Int, channels: Int, bitRate: Int) {
+        val header = createWavFileHeader(totalAudioLen, totalDataLen, longSampleRate, channels, bitRate)
+        try {
+            val raf = java.io.RandomAccessFile(filePath, "rw")
+            raf.seek(0) // 파일의 맨 처음으로 이동하여 헤더 작성
+            raf.write(header)
+            raf.close()
+        } catch (e: IOException) {
+            e.printStackTrace()
         }
     }
 }
