@@ -39,7 +39,7 @@
 
             <!-- 첫 번째 버튼 -->
             <Button
-                android:id="@+id/btnFirst"
+                android:id="@+id/btnTTS"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:background="@drawable/message"
@@ -47,7 +47,7 @@
 
             <!-- 두 번째 버튼 -->
             <Button
-                android:id="@+id/btnSecond"
+                android:id="@+id/btnRecord"
                 android:layout_width="180dp"
                 android:layout_height="180dp"
                 android:background="@drawable/recording"
@@ -55,7 +55,7 @@
 
             <!-- 세 번째 버튼 -->
             <Button
-                android:id="@+id/btnThird"
+                android:id="@+id/btndelete"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:background="@drawable/delete"
@@ -64,7 +64,7 @@
 
         <!-- Previous 버튼 (아래에 단독으로 배치) -->
         <Button
-            android:id="@+id/btnPrevious"
+            android:id="@+id/btnHome"
             android:layout_width="150dp"
             android:layout_height="45dp"
             android:background="@drawable/previous"

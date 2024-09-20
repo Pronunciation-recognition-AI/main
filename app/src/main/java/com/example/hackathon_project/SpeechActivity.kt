@@ -15,6 +15,7 @@ class SpeechActivity : AppCompatActivity() {
     private lateinit var btnRecord: Button
     private lateinit var btnTTS: Button
     private lateinit var btnHome: Button
+    private lateinit var btnDelete: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +26,7 @@ class SpeechActivity : AppCompatActivity() {
         btnRecord = findViewById(R.id.btnRecord)
         btnTTS = findViewById(R.id.btnTTS)
         btnHome = findViewById(R.id.btnHome)
+        btnDelete = findViewById(R.id.btndelete) // btnDelete ID 수정
 
         // 녹음 버튼 클릭 이벤트
         btnRecord.setOnClickListener {
@@ -47,6 +49,12 @@ class SpeechActivity : AppCompatActivity() {
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
             finish()  // 현재 액티비티를 종료하여 홈 화면으로 복귀
+        }
+
+        // Delete 버튼 클릭 이벤트 (텍스트 초기화 기능 추가)
+        btnDelete.setOnClickListener {
+            tvRecognizedSpeech.text = ""  // 텍스트뷰의 내용을 빈 문자열로 초기화
+            Toast.makeText(this, "텍스트가 초기화되었습니다.", Toast.LENGTH_SHORT).show()
         }
     }
 }
