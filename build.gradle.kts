@@ -13,5 +13,6 @@ buildscript {
     }
     dependencies {
         classpath("com.android.tools.build:gradle:8.5.1")  // Android Gradle Plugin 버전 명시
+        classpath("com.chaquo.python:gradle:15.0.1")
     }
 }

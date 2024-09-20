@@ -13,12 +13,16 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.chaquo.python.Python
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 import kotlin.math.min
+import com.chaquo.python.PyObject
+import android.util.Log
+import com.chaquo.python.android.AndroidPlatform
 
 class LearningActivity : AppCompatActivity() {
 
@@ -95,9 +99,29 @@ class LearningActivity : AppCompatActivity() {
             }
         }
 
-        // 버튼 클릭 리스너 설정
+        if (!Python.isStarted()){
+            Python.start(AndroidPlatform(this))
+        }
+
         btnLearn.setOnClickListener {
-            Toast.makeText(this, "학습 중입니다..", Toast.LENGTH_SHORT).show()
+            // 폴더 경로 정의 (핸드폰 Music 폴더에서 음성 파일 가져오기)
+            val dataFolder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC).absolutePath
+            println("Start")
+            // X.npy 및 y.npy 파일 저장 경로
+            val outputXPath = "${dataFolder}/X.npy"
+            val outputYPath = "${dataFolder}/y.npy"
+            println("1")
+
+            // Chaquopy로 Python 스크립트 실행
+            val python = Python.getInstance()
+            val pythonCode = python.getModule("library_test")  // feature_extraction.py 파일
+            println("2")
+            // Python 코드 실행
+            println(dataFolder)
+            val result = pythonCode.callAttr("run_feature_extraction", dataFolder, outputXPath, outputYPath)
+            println("3")
+            Toast.makeText(this, result.toString(), Toast.LENGTH_LONG).show()
+            println("4")
         }
 
         // 홈 버튼 클릭 이벤트
