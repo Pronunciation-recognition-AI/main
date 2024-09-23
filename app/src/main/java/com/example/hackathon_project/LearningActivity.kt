@@ -105,23 +105,26 @@ class LearningActivity : AppCompatActivity() {
 
         btnLearn.setOnClickListener {
             // 폴더 경로 정의 (핸드폰 Music 폴더에서 음성 파일 가져오기)
-            val dataFolder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC).absolutePath
+            val dataFolder = getExternalFilesDir(Environment.DIRECTORY_MUSIC)?.absolutePath ?: run {
+                Toast.makeText(this, "파일 경로를 찾을 수 없습니다.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             println("Start")
             // X.npy 및 y.npy 파일 저장 경로
             val outputXPath = "${dataFolder}/X.npy"
             val outputYPath = "${dataFolder}/y.npy"
-            println("1")
+            println("@1")
 
             // Chaquopy로 Python 스크립트 실행
             val python = Python.getInstance()
             val pythonCode = python.getModule("library_test")  // feature_extraction.py 파일
-            println("2")
+            println("@2")
             // Python 코드 실행
             println(dataFolder)
             val result = pythonCode.callAttr("run_feature_extraction", dataFolder, outputXPath, outputYPath)
-            println("3")
+            println("@3")
             Toast.makeText(this, result.toString(), Toast.LENGTH_LONG).show()
-            println("4")
+            println("@4")
         }
 
         // 홈 버튼 클릭 이벤트
