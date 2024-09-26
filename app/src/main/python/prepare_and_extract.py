@@ -7,10 +7,6 @@ from sklearn.svm import SVC
 from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import make_pipeline
 
-
-
-
-
 # 음성 데이터를 저장한 폴더
 def run_feature_extraction(data_folder, output_x_path, output_y_path):
     print("1")
@@ -19,6 +15,7 @@ def run_feature_extraction(data_folder, output_x_path, output_y_path):
     # 데이터를 저장할 리스트
     X = []
     y = []
+
     print("2")
     # 특징 추출 함수
     def extract_features(file_path):

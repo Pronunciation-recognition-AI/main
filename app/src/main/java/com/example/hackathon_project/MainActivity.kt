@@ -35,7 +35,20 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         val currentUser = mAuth.currentUser
-        currentUser?.let { updateUI(it) }
+        if (currentUser != null) {
+            currentUser.reload() // Firebase에서 사용자 정보 새로고침
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        // 사용자가 삭제되지 않았으면 UI 업데이트
+                        updateUI(currentUser)
+                    } else {
+                        // 삭제된 사용자라면 로그아웃 처리
+                        mAuth.signOut()
+                        Toast.makeText(this, "사용자 정보가 유효하지 않습니다. 다시 로그인하세요.", Toast.LENGTH_SHORT).show()
+                        updateUI(null)
+                    }
+                }
+        }
     }
 
     private fun loginUser() {
