@@ -1,5 +1,6 @@
 package com.example.hackathon_project
 
+import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.media.AudioFormat
@@ -105,30 +106,23 @@ class LearningActivity : AppCompatActivity() {
 
         btnLearn.setOnClickListener {
             // 폴더 경로 정의 (핸드폰 Music 폴더에서 음성 파일 가져오기)
-//            val dataFolder = getExternalFilesDir(Environment.DIRECTORY_MUSIC)?.absolutePath ?: run {
-//                Toast.makeText(this, "파일 경로를 찾을 수 없습니다.", Toast.LENGTH_SHORT).show()
-//                return@setOnClickListener
-//            }
             val dataFolder = getExternalFilesDir(Environment.DIRECTORY_MUSIC)?.absolutePath ?: run {
                 Toast.makeText(this, "파일 경로를 찾을 수 없습니다.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            println("Start")
-            // X.npy 및 y.npy 파일 저장 경로
-            val outputXPath = "${dataFolder}/X.npy"
-            val outputYPath = "${dataFolder}/y.npy"
-            println("@1")
+            println("학습 Start")
 
             // Chaquopy로 Python 스크립트 실행
             val python = Python.getInstance()
-            val pythonCode = python.getModule("prepare_and_extract")  // feature_extraction.py 파일
-            println("@2")
+            val pythonCode = python.getModule("prepare_and_extract")
+            println("prepare_and_extract 실행 완료")
+
             // Python 코드 실행
             println(dataFolder)
-            val result = pythonCode.callAttr("run_feature_extraction", dataFolder, outputXPath, outputYPath)
-            println("@3")
+            val result = pythonCode.callAttr("run_feature_extraction", dataFolder)
+            println("run_feature_extraction 실행 완료")
+
             Toast.makeText(this, result.toString(), Toast.LENGTH_LONG).show()
-            println("@4")
         }
 
         // 홈 버튼 클릭 이벤트
@@ -146,6 +140,14 @@ class LearningActivity : AppCompatActivity() {
         val bufferSize = AudioRecord.getMinBufferSize(sampleRate, channelConfig, audioFormat) * 2
 
         // AudioRecord 객체 초기화
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.RECORD_AUDIO
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            return
+        }
+
         audioRecord = AudioRecord(MediaRecorder.AudioSource.MIC, sampleRate, channelConfig, audioFormat, bufferSize)
 
         val outputDir = getExternalFilesDir(Environment.DIRECTORY_MUSIC)

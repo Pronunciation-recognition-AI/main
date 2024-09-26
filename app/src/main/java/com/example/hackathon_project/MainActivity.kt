@@ -35,6 +35,8 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         val currentUser = mAuth.currentUser
+        println(currentUser?.uid) // admin 계정 uid: eTPAIev0HIP7wTYkDzMEfj9IY153
+
         if (currentUser != null) {
             currentUser.reload() // Firebase에서 사용자 정보 새로고침
                 .addOnCompleteListener { task ->
