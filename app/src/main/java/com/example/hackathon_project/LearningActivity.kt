@@ -117,7 +117,7 @@ class LearningActivity : AppCompatActivity() {
 
             // Chaquopy로 Python 스크립트 실행
             val python = Python.getInstance()
-            val pythonCode = python.getModule("library_test")  // feature_extraction.py 파일
+            val pythonCode = python.getModule("prepare_and_extract")  // feature_extraction.py 파일
             println("@2")
             // Python 코드 실행
             println(dataFolder)
@@ -144,11 +144,11 @@ class LearningActivity : AppCompatActivity() {
         // AudioRecord 객체 초기화
         audioRecord = AudioRecord(MediaRecorder.AudioSource.MIC, sampleRate, channelConfig, audioFormat, bufferSize)
 
-        val outputDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC)
-        if (!outputDir.exists()) {
-            outputDir.mkdirs()
+        val outputDir = getExternalFilesDir(Environment.DIRECTORY_MUSIC)
+        if (outputDir != null && !outputDir.exists()) {
+            outputDir.mkdirs()  // Music 폴더가 없으면 생성
         }
-        outputFile = "${outputDir.absolutePath}/${words[currentWordIndex]}_${System.currentTimeMillis()}.wav"
+        outputFile = "${outputDir}/${words[currentWordIndex]}_${System.currentTimeMillis()}.wav"
         val outputStream = FileOutputStream(outputFile)
 
         val buffer = ByteArray(bufferSize)

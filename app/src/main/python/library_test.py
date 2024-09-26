@@ -39,6 +39,8 @@ def run_feature_extraction(data_folder, output_x_path, output_y_path):
     X = np.array(X)
     y = np.array(y)
     print("5")
+    print("X : ", X)
+    print("y : ", y)
     np.save(output_x_path, X)
     np.save(output_y_path, y)
     print("6")
