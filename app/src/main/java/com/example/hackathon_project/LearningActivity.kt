@@ -32,6 +32,7 @@ class LearningActivity : AppCompatActivity() {
     private lateinit var btnNext: Button
     private lateinit var btnRecord: Button
     private lateinit var btnLearn: Button
+    private lateinit var btnSave: Button
     private lateinit var btnHome: Button
 
     private val REQUEST_RECORD_AUDIO_PERMISSION = 200
@@ -60,6 +61,7 @@ class LearningActivity : AppCompatActivity() {
         btnPrevious = findViewById(R.id.btnPrevious)
         btnNext = findViewById(R.id.btnNext)
         btnRecord = findViewById(R.id.btnRecord)
+        btnSave = findViewById(R.id.btnSave)
         btnLearn = findViewById(R.id.btnLearn)
         btnHome = findViewById(R.id.btnHome)
 
@@ -84,6 +86,11 @@ class LearningActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "마지막 단어입니다.", Toast.LENGTH_SHORT).show()
             }
+        }
+
+        // 저장 버튼 클릭 이벤트 추가
+        btnSave.setOnClickListener {
+            Toast.makeText(this, "저장 중...", Toast.LENGTH_SHORT).show()
         }
 
         // 녹음 버튼 클릭 이벤트

@@ -48,13 +48,30 @@
             android:layout_margin="8dp" />
     </LinearLayout>
 
-    <!-- 학습 버튼  -->
-    <Button
-        android:id="@+id/btnLearn"
+    <!-- 학습 버튼과 저장 버튼을 나란히 배치하는 레이아웃 -->
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="학습"
-        android:layout_marginTop="20dp" />
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="20dp">
+
+        <!-- 저장 버튼 -->
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="저장"
+            android:layout_margin="8dp" />
+
+        <!-- 학습 버튼 -->
+        <Button
+            android:id="@+id/btnLearn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="학습"
+            android:layout_margin="8dp" />
+    </LinearLayout>
 
     <!-- 홈으로 돌아가는 버튼 -->
     <Button
