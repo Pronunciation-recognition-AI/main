@@ -1,19 +1,16 @@
 import os
 import librosa
 import numpy as np
-<<<<<<< HEAD
 from sklearn.model_selection import train_test_split, RandomizedSearchCV
-=======
 from sklearn.model_selection import train_test_split
->>>>>>> d07e9fd8a1867babdd2c1549bcb451e5297a79fa
 from sklearn.svm import SVC
 from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import make_pipeline
 
-<<<<<<< HEAD
 
-=======
->>>>>>> d07e9fd8a1867babdd2c1549bcb451e5297a79fa
+
+
+
 # 음성 데이터를 저장한 폴더
 def run_feature_extraction(data_folder, output_x_path, output_y_path):
     print("1")
@@ -29,8 +26,8 @@ def run_feature_extraction(data_folder, output_x_path, output_y_path):
         y, sr = librosa.load(file_path, sr=None)
         mfccs = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=13)
         return np.mean(mfccs.T, axis=0)
-<<<<<<< HEAD
-=======
+
+
 
     def predict_word(file_path):
         features = extract_features(file_path)
@@ -38,7 +35,7 @@ def run_feature_extraction(data_folder, output_x_path, output_y_path):
         prediction = model.predict(features)
         prediction_probabilities = model.predict_proba(features)
         return prediction[0], prediction_probabilities
->>>>>>> d07e9fd8a1867babdd2c1549bcb451e5297a79fa
+
     print("3")
     # 데이터 읽기 및 특징 추출
     for word in words:
@@ -60,7 +57,6 @@ def run_feature_extraction(data_folder, output_x_path, output_y_path):
     # 데이터를 numpy 배열로 변환하여 저장
     X = np.array(X)
     y = np.array(y)
-<<<<<<< HEAD
 
     # 학습 데이터와 테스트 데이터 분리
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
@@ -92,7 +88,7 @@ def run_feature_extraction(data_folder, output_x_path, output_y_path):
 
     return "Success to train"
 
-=======
+
     # print("5")
     # np.save(output_x_path, X)
     # np.save(output_y_path, y)
@@ -117,4 +113,3 @@ def run_feature_extraction(data_folder, output_x_path, output_y_path):
         for word, prob in zip(model.classes_, probabilities[0]):
             print(f'    단어: "{word}" 확률: {prob * 100:.2f}%')
     return "Feature extraction completed successfully"
->>>>>>> d07e9fd8a1867babdd2c1549bcb451e5297a79fa

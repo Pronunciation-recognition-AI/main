@@ -109,7 +109,10 @@ class LearningActivity : AppCompatActivity() {
 //                Toast.makeText(this, "파일 경로를 찾을 수 없습니다.", Toast.LENGTH_SHORT).show()
 //                return@setOnClickListener
 //            }
-            val dataFolder = "/storage/emulated/0/Music"
+            val dataFolder = getExternalFilesDir(Environment.DIRECTORY_MUSIC)?.absolutePath ?: run {
+                Toast.makeText(this, "파일 경로를 찾을 수 없습니다.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             println("Start")
             // X.npy 및 y.npy 파일 저장 경로
             val outputXPath = "${dataFolder}/X.npy"
