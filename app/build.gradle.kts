@@ -71,6 +71,7 @@ chaquopy {
             install("scikit-learn")
             install("librosa==0.8.1")
             install("resampy==0.2.2")
+            install("joblib")
         }
     }
 }

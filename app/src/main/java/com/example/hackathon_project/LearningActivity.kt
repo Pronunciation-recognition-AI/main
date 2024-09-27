@@ -15,14 +15,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.chaquo.python.Python
-import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
-import java.nio.ByteBuffer
-import java.nio.ByteOrder
-import kotlin.math.min
-import com.chaquo.python.PyObject
-import android.util.Log
 import com.chaquo.python.android.AndroidPlatform
 
 class LearningActivity : AppCompatActivity() {
@@ -91,6 +85,8 @@ class LearningActivity : AppCompatActivity() {
         // 저장 버튼 클릭 이벤트 추가
         btnSave.setOnClickListener {
             Toast.makeText(this, "저장 중...", Toast.LENGTH_SHORT).show()
+
+
         }
 
         // 녹음 버튼 클릭 이벤트
@@ -122,7 +118,6 @@ class LearningActivity : AppCompatActivity() {
             // Chaquopy로 Python 스크립트 실행
             val python = Python.getInstance()
             val pythonCode = python.getModule("prepare_and_extract")
-            println("prepare_and_extract 실행 완료")
 
             // Python 코드 실행
             println(dataFolder)
