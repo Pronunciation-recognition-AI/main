@@ -62,13 +62,10 @@
                 android:layout_margin="8dp" />
         </LinearLayout>
 
-        <!-- Previous 버튼 (아래에 단독으로 배치) -->
         <Button
-            android:id="@+id/btnHome"
-            android:layout_width="150dp"
-            android:layout_height="45dp"
-            android:background="@drawable/previous"
-            android:layout_gravity="center"
-            android:layout_marginTop="0dp" />
+            android:id="@+id/btnPlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Play Recording" />
     </LinearLayout>
 </LinearLayout>

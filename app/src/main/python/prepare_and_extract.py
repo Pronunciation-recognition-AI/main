@@ -17,7 +17,6 @@ def run_feature_extraction(data_folder):
 
     # 특징 추출 함수
     def extract_features(file_path):
-        print("extract_features 함수 실행")
         y, sr = librosa.load(file_path, sr=None)
         mfccs = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=13)
         return np.mean(mfccs.T, axis=0)
@@ -49,8 +48,6 @@ def run_feature_extraction(data_folder):
 
     # 학습된 모델을 저장
     joblib.dump(model, model_path)
-    print(f"모델이 {model_path}에 저장되었습니다.")
-
 
     return f'모델 정확도: {accuracy * 100:.2f}%'
 

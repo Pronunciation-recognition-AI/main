@@ -26,8 +26,6 @@ class LearningActivity : AppCompatActivity() {
     private lateinit var btnNext: Button
     private lateinit var btnRecord: Button
     private lateinit var btnLearn: Button
-    private lateinit var btnSave: Button
-    private lateinit var btnHome: Button
 
     private val REQUEST_RECORD_AUDIO_PERMISSION = 200
 
@@ -55,9 +53,7 @@ class LearningActivity : AppCompatActivity() {
         btnPrevious = findViewById(R.id.btnPrevious)
         btnNext = findViewById(R.id.btnNext)
         btnRecord = findViewById(R.id.btnRecord)
-        btnSave = findViewById(R.id.btnSave)
         btnLearn = findViewById(R.id.btnLearn)
-        btnHome = findViewById(R.id.btnHome)
 
         // 현재 낱말 표시
         wordTextView.text = words[currentWordIndex]
@@ -80,13 +76,6 @@ class LearningActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "마지막 단어입니다.", Toast.LENGTH_SHORT).show()
             }
-        }
-
-        // 저장 버튼 클릭 이벤트 추가
-        btnSave.setOnClickListener {
-            Toast.makeText(this, "저장 중...", Toast.LENGTH_SHORT).show()
-
-
         }
 
         // 녹음 버튼 클릭 이벤트
@@ -113,25 +102,13 @@ class LearningActivity : AppCompatActivity() {
                 Toast.makeText(this, "파일 경로를 찾을 수 없습니다.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            println("학습 Start")
 
             // Chaquopy로 Python 스크립트 실행
             val python = Python.getInstance()
             val pythonCode = python.getModule("prepare_and_extract")
-
-            // Python 코드 실행
-            println(dataFolder)
             val result = pythonCode.callAttr("run_feature_extraction", dataFolder)
-            println("run_feature_extraction 실행 완료")
 
             Toast.makeText(this, result.toString(), Toast.LENGTH_LONG).show()
-        }
-
-        // 홈 버튼 클릭 이벤트
-        btnHome.setOnClickListener {
-            val intent = Intent(this, HomeActivity::class.java)
-            startActivity(intent)
-            finish()  // 현재 액티비티 종료
         }
     }
 
@@ -182,10 +159,7 @@ class LearningActivity : AppCompatActivity() {
                     if (read > 0) {
                         outputStream.write(buffer, 0, read)
                         totalAudioLen += read
-                        // 읽은 바이트 수를 로그로 출력
-                        println("녹음된 데이터 길이: $read 바이트")
                     } else {
-                        println("녹음 데이터 없음.")
                     }
                 }
 
@@ -208,8 +182,6 @@ class LearningActivity : AppCompatActivity() {
 
         // 녹음 스레드 종료 대기
         recordingThread.join()
-
-        Toast.makeText(this, "녹음이 완료되었습니다. 파일 저장 위치: $outputFile", Toast.LENGTH_LONG).show()
         btnRecord.text = "녹음 시작"
     }
 

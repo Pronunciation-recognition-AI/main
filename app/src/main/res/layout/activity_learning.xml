@@ -56,14 +56,6 @@
         android:gravity="center"
         android:layout_marginTop="20dp">
 
-        <!-- 저장 버튼 -->
-        <Button
-            android:id="@+id/btnSave"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="저장"
-            android:layout_margin="8dp" />
-
         <!-- 학습 버튼 -->
         <Button
             android:id="@+id/btnLearn"
@@ -72,13 +64,5 @@
             android:text="학습"
             android:layout_margin="8dp" />
     </LinearLayout>
-
-    <!-- 홈으로 돌아가는 버튼 -->
-    <Button
-        android:id="@+id/btnHome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="홈으로 돌아가기"
-        android:layout_marginTop="30dp" />
 
 </LinearLayout>

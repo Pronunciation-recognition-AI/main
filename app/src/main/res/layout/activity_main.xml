@@ -114,7 +114,7 @@
         android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@id/passwordEditText"
         app:layout_constraintEnd_toEndOf="@id/passwordEditText"
-        android:layout_marginTop="44dp" />
+        android:layout_marginTop="42dp" />
 
     <!-- 로그인 버튼 -->
     <Button
