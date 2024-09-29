@@ -39,6 +39,10 @@
             android:name=".LearningActivity"
             android:exported="true"
             android:label="음성 학습" />
+        <activity
+            android:name=".ManageActivity"
+            android:exported="true"
+            android:label="학습 관리" />
 
 
     </application>
