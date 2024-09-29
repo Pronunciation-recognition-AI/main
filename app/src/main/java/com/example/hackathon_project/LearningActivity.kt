@@ -271,6 +271,6 @@ class LearningActivity : AppCompatActivity() {
         } ?: emptyArray()
 
         // 파일 개수 업데이트
-        fileCountTextView.text = "현재 녹음된 파일: ${recordedFiles.size} / 10 개"
+        fileCountTextView.text = "현재 녹음된 파일: ${recordedFiles.size} / 100 개"
     }
 }
