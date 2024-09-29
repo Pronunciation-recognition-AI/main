@@ -1,6 +1,5 @@
 package com.example.hackathon_project
 import android.Manifest
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.media.AudioRecord
 import android.os.Bundle
@@ -20,14 +19,19 @@ import android.media.MediaRecorder
 import java.io.FileOutputStream
 import java.io.IOException
 import android.media.MediaPlayer
+import android.speech.tts.TextToSpeech  // TextToSpeech import
+import java.util.Locale  // Locale import
 
 
-class SpeechActivity : AppCompatActivity() {
+class SpeechActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private lateinit var tvRecognizedSpeech: TextView
     private lateinit var btnRecord: Button
     private lateinit var btnTTS: Button
     private lateinit var btnDelete: Button
     private lateinit var btnPlay: Button
+    private lateinit var textToSpeech: TextToSpeech  // TTS 객체 추가
+    private var ttsInitialized = false  // TTS 초기화 상태
+
 
     private val REQUEST_RECORD_AUDIO_PERMISSION = 200
 
@@ -53,6 +57,9 @@ class SpeechActivity : AppCompatActivity() {
         btnTTS = findViewById(R.id.btnTTS)
         btnDelete = findViewById(R.id.btndelete)
         btnPlay = findViewById(R.id.btnPlay)
+
+        // TextToSpeech 객체 초기화
+        textToSpeech = TextToSpeech(this, this)
 
         // 녹음 파일 재생 버튼 클릭 이벤트
         btnPlay.setOnClickListener {
@@ -105,15 +112,40 @@ class SpeechActivity : AppCompatActivity() {
             }
         }
 
-        // TTS 버튼 클릭 이벤트 (미구현)
+        // TTS 버튼 클릭 이벤트
         btnTTS.setOnClickListener {
-            Toast.makeText(this, "TTS 기능은 구현 예정입니다.", Toast.LENGTH_SHORT).show()
+            val textToSpeak = tvRecognizedSpeech.text.toString()  // TTS로 읽을 텍스트
+            if (ttsInitialized) {  // TTS가 초기화 되었는지 확인
+                if (textToSpeak.isNotEmpty()) {
+                    // 텍스트를 음성으로 변환하여 읽어줌
+                    textToSpeech.speak(textToSpeak, TextToSpeech.QUEUE_FLUSH, null, null)
+                } else {
+                    Toast.makeText(this, "읽을 텍스트가 없습니다.", Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                Toast.makeText(this, "TTS 초기화가 완료되지 않았습니다.", Toast.LENGTH_SHORT).show()
+            }
         }
 
         // Delete 버튼 클릭 이벤트 (텍스트 초기화 기능 추가)
         btnDelete.setOnClickListener {
             tvRecognizedSpeech.text = ""  // 텍스트뷰의 내용을 빈 문자열로 초기화
             Toast.makeText(this, "텍스트가 초기화되었습니다.", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    // TTS 초기화 시 호출되는 메서드
+    override fun onInit(status: Int) {
+        if (status == TextToSpeech.SUCCESS) {
+            // TTS 언어를 한국어로 설정
+            val result = textToSpeech.setLanguage(Locale.KOREAN)
+            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                Toast.makeText(this, "한국어 TTS는 지원되지 않습니다.", Toast.LENGTH_SHORT).show()
+            } else {
+                ttsInitialized = true  // TTS 초기화 완료
+            }
+        } else {
+            Toast.makeText(this, "TTS 초기화에 실패했습니다.", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -263,9 +295,15 @@ class SpeechActivity : AppCompatActivity() {
         }
     }
 
+    // TTS 객체 해제
     override fun onDestroy() {
         super.onDestroy()
-        mediaPlayer?.release()
+        mediaPlayer?.release()  // 미디어 플레이어 자원 해제
         mediaPlayer = null
+
+        if (textToSpeech != null) {
+            textToSpeech.stop()
+            textToSpeech.shutdown()
+        }
     }
 }
