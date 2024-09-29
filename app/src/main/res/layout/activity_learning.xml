@@ -16,6 +16,15 @@
         android:textStyle="bold"
         android:layout_marginBottom="40dp" />
 
+    <!-- 녹음된 파일 개수를 표시하는 텍스트뷰 -->
+    <TextView
+        android:id="@+id/fileCountTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="현재 녹음된 파일: 0 / 10 개"
+        android:textSize="18sp"
+        android:layout_marginBottom="20dp" />
+
     <!-- 녹음 및 이전/다음 버튼을 포함하는 레이아웃 -->
     <LinearLayout
         android:layout_width="wrap_content"

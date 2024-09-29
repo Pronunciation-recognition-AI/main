@@ -1,7 +1,6 @@
 package com.example.hackathon_project
 
 import android.Manifest
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.media.AudioFormat
 import android.media.AudioRecord
@@ -18,10 +17,12 @@ import com.chaquo.python.Python
 import java.io.FileOutputStream
 import java.io.IOException
 import com.chaquo.python.android.AndroidPlatform
+import java.io.File
 
 class LearningActivity : AppCompatActivity() {
 
     private lateinit var wordTextView: TextView
+    private lateinit var fileCountTextView: TextView
     private lateinit var btnPrevious: Button
     private lateinit var btnNext: Button
     private lateinit var btnRecord: Button
@@ -44,12 +45,13 @@ class LearningActivity : AppCompatActivity() {
         setContentView(R.layout.activity_learning)
 
         // 권한 확인 및 요청
-        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.RECORD_AUDIO), REQUEST_RECORD_AUDIO_PERMISSION)
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.RECORD_AUDIO), REQUEST_RECORD_AUDIO_PERMISSION)
         }
 
         // UI 요소 초기화
         wordTextView = findViewById(R.id.wordTextView)
+        fileCountTextView = findViewById(R.id.fileCountTextView)
         btnPrevious = findViewById(R.id.btnPrevious)
         btnNext = findViewById(R.id.btnNext)
         btnRecord = findViewById(R.id.btnRecord)
@@ -57,12 +59,14 @@ class LearningActivity : AppCompatActivity() {
 
         // 현재 낱말 표시
         wordTextView.text = words[currentWordIndex]
+        updateFileCount()  // 처음에 파일 개수 표시
 
         // 이전 버튼 클릭 이벤트
         btnPrevious.setOnClickListener {
             if (currentWordIndex > 0) {
                 currentWordIndex--
                 wordTextView.text = words[currentWordIndex]
+                updateFileCount()  // 단어가 변경된 후 파일 개수 업데이트
             } else {
                 Toast.makeText(this, "첫 번째 단어입니다.", Toast.LENGTH_SHORT).show()
             }
@@ -73,6 +77,7 @@ class LearningActivity : AppCompatActivity() {
             if (currentWordIndex < words.size - 1) {
                 currentWordIndex++
                 wordTextView.text = words[currentWordIndex]
+                updateFileCount()  // 단어가 변경된 후 파일 개수 업데이트
             } else {
                 Toast.makeText(this, "마지막 단어입니다.", Toast.LENGTH_SHORT).show()
             }
@@ -92,7 +97,7 @@ class LearningActivity : AppCompatActivity() {
             }
         }
 
-        if (!Python.isStarted()){
+        if (!Python.isStarted()) {
             Python.start(AndroidPlatform(this))
         }
 
@@ -167,6 +172,11 @@ class LearningActivity : AppCompatActivity() {
                 val totalDataLen = totalAudioLen + headerSize - 8
                 updateWavHeader(outputFile, totalAudioLen, totalDataLen, sampleRate, 1, 16)
                 outputStream.close()
+
+                // 녹음이 끝난 후 파일 개수 업데이트
+                runOnUiThread {
+                    updateFileCount()
+                }
             } catch (e: IOException) {
                 e.printStackTrace()
             }
@@ -211,7 +221,7 @@ class LearningActivity : AppCompatActivity() {
         header[17] = 0
         header[18] = 0
         header[19] = 0
-        header[20] = 1 // format = 1
+        header[20] = 1 // format = 1 (PCM)
         header[21] = 0
         header[22] = channels.toByte()
         header[23] = 0
@@ -227,7 +237,7 @@ class LearningActivity : AppCompatActivity() {
         header[33] = 0
         header[34] = bitRate.toByte() // bits per sample
         header[35] = 0
-        header[36] = 'd'.toByte() // data
+        header[36] = 'd'.toByte() // data chunk identifier
         header[37] = 'a'.toByte()
         header[38] = 't'.toByte()
         header[39] = 'a'.toByte()
@@ -238,15 +248,29 @@ class LearningActivity : AppCompatActivity() {
         return header
     }
 
+    // WAV 파일 헤더 업데이트
     private fun updateWavHeader(filePath: String, totalAudioLen: Long, totalDataLen: Long, longSampleRate: Int, channels: Int, bitRate: Int) {
         val header = createWavFileHeader(totalAudioLen, totalDataLen, longSampleRate, channels, bitRate)
         try {
             val raf = java.io.RandomAccessFile(filePath, "rw")
-            raf.seek(0) // 파일의 맨 처음으로 이동하여 헤더 작성
+            raf.seek(0) // 파일의 처음으로 이동하여 헤더 작성
             raf.write(header)
             raf.close()
         } catch (e: IOException) {
             e.printStackTrace()
         }
+    }
+
+    // 녹음된 현재 단어의 파일 개수를 업데이트하는 함수
+    private fun updateFileCount() {
+        val dataFolder = getExternalFilesDir(Environment.DIRECTORY_MUSIC)?.absolutePath ?: return
+
+        // 현재 단어에 해당하는 파일 필터링
+        val recordedFiles = File(dataFolder).listFiles { file ->
+            file.extension == "wav" && file.name.contains(words[currentWordIndex])
+        } ?: emptyArray()
+
+        // 파일 개수 업데이트
+        fileCountTextView.text = "현재 녹음된 파일: ${recordedFiles.size} / 10 개"
     }
 }
