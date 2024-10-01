@@ -17,6 +17,9 @@ import com.chaquo.python.Python
 import java.io.FileOutputStream
 import java.io.IOException
 import com.chaquo.python.android.AndroidPlatform
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.storage.FirebaseStorage
+import java.io.ByteArrayOutputStream
 import java.io.File
 
 class LearningActivity : AppCompatActivity() {
@@ -97,9 +100,9 @@ class LearningActivity : AppCompatActivity() {
             }
         }
 
-        if (!Python.isStarted()) {
-            Python.start(AndroidPlatform(this))
-        }
+//        if (!Python.isStarted()) {
+//            Python.start(AndroidPlatform(this))
+//        }
 
         btnLearn.setOnClickListener {
             // 폴더 경로 정의 (핸드폰 Music 폴더에서 음성 파일 가져오기)
@@ -108,22 +111,25 @@ class LearningActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // Chaquopy로 Python 스크립트 실행
-            val python = Python.getInstance()
-            val pythonCode = python.getModule("prepare_and_extract")
-            val result = pythonCode.callAttr("run_feature_extraction", dataFolder)
+            val user = FirebaseAuth.getInstance().currentUser
+            val userId = user?.uid // 사용자의 고유 ID
 
-            Toast.makeText(this, result.toString(), Toast.LENGTH_LONG).show()
+
+
+//            // Chaquopy로 Python 스크립트 실행
+//            val python = Python.getInstance()
+//            val pythonCode = python.getModule("prepare_and_extract")
+//            val result = pythonCode.callAttr("run_feature_extraction", dataFolder)
+
+//            Toast.makeText(this, result.toString(), Toast.LENGTH_LONG).show()
         }
     }
-
     private fun startRecording() {
         val sampleRate = 44100  // 44.1kHz 샘플 레이트
         val channelConfig = AudioFormat.CHANNEL_IN_MONO
         val audioFormat = AudioFormat.ENCODING_PCM_16BIT
         val bufferSize = AudioRecord.getMinBufferSize(sampleRate, channelConfig, audioFormat) * 2
 
-        // AudioRecord 객체 초기화
         if (ActivityCompat.checkSelfPermission(
                 this,
                 Manifest.permission.RECORD_AUDIO
@@ -134,55 +140,57 @@ class LearningActivity : AppCompatActivity() {
 
         audioRecord = AudioRecord(MediaRecorder.AudioSource.MIC, sampleRate, channelConfig, audioFormat, bufferSize)
 
-        val outputDir = getExternalFilesDir(Environment.DIRECTORY_MUSIC)
-        if (outputDir != null && !outputDir.exists()) {
-            outputDir.mkdirs()  // Music 폴더가 없으면 생성
-        }
-        outputFile = "${outputDir}/${words[currentWordIndex]}_${System.currentTimeMillis()}.wav"
-        val outputStream = FileOutputStream(outputFile)
-
+        val outputStream = ByteArrayOutputStream()  // 파일 대신 메모리 스트림 사용
         val buffer = ByteArray(bufferSize)
 
-        // 먼저 더미 헤더를 작성하고 파일에 기록
-        val header = createWavFileHeader(0, 0, sampleRate, 1, 16)
-        outputStream.write(header)
-
-        // 녹음 시작
         audioRecord.startRecording()
         isRecording = true
-        btnRecord.text = "녹음 중지"
         Toast.makeText(this@LearningActivity, "녹음이 시작되었습니다.", Toast.LENGTH_SHORT).show()
 
-        // 녹음 스레드 실행
         recordingThread = Thread {
             try {
-                var totalAudioLen: Long = 0
-                val headerSize = 44  // WAV 헤더 크기
-
                 while (isRecording) {
                     val read = audioRecord.read(buffer, 0, buffer.size)
                     if (read > 0) {
-                        outputStream.write(buffer, 0, read)
-                        totalAudioLen += read
-                    } else {
+                        outputStream.write(buffer, 0, read)  // 데이터를 메모리에 저장
                     }
                 }
 
-                // 총 데이터 길이와 파일 크기를 계산
-                val totalDataLen = totalAudioLen + headerSize - 8
-                updateWavHeader(outputFile, totalAudioLen, totalDataLen, sampleRate, 1, 16)
-                outputStream.close()
-
-                // 녹음이 끝난 후 파일 개수 업데이트
+                // UI 스레드에서 Firebase Storage 업로드 실행
                 runOnUiThread {
-                    updateFileCount()
+                    uploadToFirebase(outputStream.toByteArray())
                 }
+
             } catch (e: IOException) {
                 e.printStackTrace()
+            } finally {
+                outputStream.close()
             }
         }
         recordingThread.start()
     }
+
+    private fun uploadToFirebase(audioData: ByteArray) {
+        val user = FirebaseAuth.getInstance().currentUser
+        val userId = user?.uid
+
+        if (userId == null) {
+            Toast.makeText(this, "사용자가 로그인되어 있지 않습니다.", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val storageReference = FirebaseStorage.getInstance().reference
+        val userAudioRef = storageReference.child("audio/$userId/${System.currentTimeMillis()}.wav")
+
+        userAudioRef.putBytes(audioData)
+            .addOnSuccessListener {
+                Toast.makeText(this, "오디오 파일이 Firebase에 성공적으로 업로드되었습니다.", Toast.LENGTH_LONG).show()
+            }
+            .addOnFailureListener { exception ->
+                Toast.makeText(this, "오디오 파일 업로드에 실패했습니다: ${exception.message}", Toast.LENGTH_LONG).show()
+            }
+    }
+
 
     private fun stopRecording() {
         // 녹음 중지

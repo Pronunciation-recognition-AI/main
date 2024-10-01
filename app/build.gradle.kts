@@ -63,7 +63,7 @@ android {
 
 chaquopy {
     defaultConfig {
-        //buildPython("C:/Users/eogks/AppData/Local/Programs/Python/Python310/python.exe")  // 정확한 Python 3.8 경로를 지정
+        buildPython("C:/Users/eogks/AppData/Local/Programs/Python/Python310/python.exe")  // 정확한 Python 3.8 경로를 지정
         // buildPython("/usr/local/bin/python3.11")
 
         pip{
