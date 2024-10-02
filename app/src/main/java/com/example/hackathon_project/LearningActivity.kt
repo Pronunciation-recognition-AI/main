@@ -18,6 +18,7 @@ import java.io.FileOutputStream
 import java.io.IOException
 import com.chaquo.python.android.AndroidPlatform
 import java.io.File
+import com.google.firebase.storage.FirebaseStorage
 
 class LearningActivity : AppCompatActivity() {
 
@@ -261,16 +262,22 @@ class LearningActivity : AppCompatActivity() {
         }
     }
 
-    // 녹음된 현재 단어의 파일 개수를 업데이트하는 함수
+    // 녹음된 모든 음성 파일의 개수를 Firebase에서 불러와 업데이트하는 함수
     private fun updateFileCount() {
-        val dataFolder = getExternalFilesDir(Environment.DIRECTORY_MUSIC)?.absolutePath ?: return
+        val storage = FirebaseStorage.getInstance()
+        val storageRef = storage.reference.child("audio/WCfGDgr3mWaBaoFdVNBcaHAzJ1P2/")
 
-        // 현재 단어에 해당하는 파일 필터링
-        val recordedFiles = File(dataFolder).listFiles { file ->
-            file.extension == "wav" && file.name.contains(words[currentWordIndex])
-        } ?: emptyArray()
+        // Firebase에서 파일 목록 가져오기
+        storageRef.listAll()
+            .addOnSuccessListener { listResult ->
+                val fileCount = listResult.items.size  // 전체 파일의 개수를 가져옴
 
-        // 파일 개수 업데이트
-        fileCountTextView.text = "현재 녹음된 파일: ${recordedFiles.size} / 100 개"
+                // 파일 개수 업데이트
+                fileCountTextView.text = "현재 Firebase에 저장된 파일: $fileCount 개"
+            }
+            .addOnFailureListener { exception ->
+                // 오류가 발생한 경우 처리
+                Toast.makeText(this, "Firebase에서 파일을 가져오는 중 오류 발생: ${exception.message}", Toast.LENGTH_SHORT).show()
+            }
     }
 }
