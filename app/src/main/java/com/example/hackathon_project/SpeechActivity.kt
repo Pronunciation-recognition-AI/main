@@ -22,10 +22,14 @@ import android.media.MediaPlayer
 import android.speech.tts.TextToSpeech  // TextToSpeech import
 import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.ChildEventListener
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import java.io.ByteArrayOutputStream
 import java.io.File
+import java.time.Instant
 import java.util.Locale  // Locale import
 
 
@@ -51,6 +55,37 @@ class SpeechActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_speech)
+
+        val database = FirebaseDatabase.getInstance()
+        val myRef = database.getReference("signals")
+
+        myRef.addChildEventListener(object : ChildEventListener {
+            override fun onChildAdded(dataSnapshot: DataSnapshot, previousChildName: String?) {
+                val signalData = dataSnapshot.value as? Map<*,*>
+                val userId = signalData?.get("userId") as? String
+                val message = signalData?.get("message") as? String
+                val timestamp = signalData?.get("timestamp") as? Long
+
+
+                val currentTime = Instant.now().epochSecond
+                println(currentTime)
+                println(timestamp)
+                // 타임스탬프가 현재 시간 이후인 경우에만 처리
+                if (timestamp != null && timestamp >= currentTime) {
+                    if (userId != null && message != null) {
+                        tvRecognizedSpeech.text = message
+                        Toast.makeText(this@SpeechActivity, "신호를 받았습니다: $message", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+
+            override fun onChildChanged(dataSnapshot: DataSnapshot, previousChildName: String?) {}
+            override fun onChildRemoved(dataSnapshot: DataSnapshot) {}
+            override fun onChildMoved(dataSnapshot: DataSnapshot, previousChildName: String?) {}
+            override fun onCancelled(databaseError: DatabaseError) {
+                Log.w("FirebaseSignal", "loadSignal:onCancelled", databaseError.toException())
+            }
+        })
 
         // 권한 확인 및 요청
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
