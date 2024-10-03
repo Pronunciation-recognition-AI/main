@@ -64,7 +64,7 @@ android {
 chaquopy {
     defaultConfig {
         //buildPython("C:/Users/eogks/AppData/Local/Programs/Python/Python310/python.exe")  // 정확한 Python 3.8 경로를 지정
-        // buildPython("/usr/local/bin/python3.11")
+        buildPython("/usr/local/bin/python3.11")
 
         pip{
             install("numpy")
@@ -103,4 +103,8 @@ dependencies {
     implementation ("com.google.firebase:firebase-storage-ktx:21.0.0") // Firebase Storage 최신 버전
     // Picasso 의존성 추가
     implementation ("com.squareup.picasso:picasso:2.71828")
+    // Retrofit2
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.1")
 }
