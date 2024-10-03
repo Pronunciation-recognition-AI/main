@@ -26,7 +26,8 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-
+import java.io.ByteArrayInputStream
+import java.io.ByteArrayOutputStream
 
 class LearningActivity : AppCompatActivity() {
 
@@ -143,16 +144,10 @@ class LearningActivity : AppCompatActivity() {
 
         audioRecord = AudioRecord(MediaRecorder.AudioSource.MIC, sampleRate, channelConfig, audioFormat, bufferSize)
 
-        val outputDir = getExternalFilesDir(Environment.DIRECTORY_MUSIC)
-        if (outputDir != null && !outputDir.exists()) {
-            outputDir.mkdirs()  // Music 폴더가 없으면 생성
-        }
-        outputFile = "${outputDir}/${words[currentWordIndex]}_${System.currentTimeMillis()}.wav"
-        val outputStream = FileOutputStream(outputFile)
-
+        val outputStream = ByteArrayOutputStream()  // ByteArrayOutputStream 사용
         val buffer = ByteArray(bufferSize)
 
-        // 먼저 더미 헤더를 작성하고 파일에 기록
+        // 먼저 더미 헤더를 작성하고 메모리에 기록
         val header = createWavFileHeader(0, 0, sampleRate, 1, 16)
         outputStream.write(header)
 
@@ -178,13 +173,11 @@ class LearningActivity : AppCompatActivity() {
 
                 // 총 데이터 길이와 파일 크기를 계산
                 val totalDataLen = totalAudioLen + headerSize - 8
-                updateWavHeader(outputFile, totalAudioLen, totalDataLen, sampleRate, 1, 16)
-                outputStream.close()
+                updateWavHeader(outputStream, totalAudioLen, totalDataLen, sampleRate, 1, 16)
 
                 // 녹음이 끝난 후 Firebase에 업로드
-                uploadFileToFirebase(outputFile)
+                uploadToFirebase(outputStream.toByteArray())
 
-                // 파일 개수 업데이트
                 runOnUiThread {
                     updateFileCount()
                 }
@@ -195,26 +188,18 @@ class LearningActivity : AppCompatActivity() {
         recordingThread.start()
     }
 
+
     // Firebase에 파일 업로드 함수
-    private fun uploadFileToFirebase(outputFile: String) {
-        // 녹음된 파일을 Uri로 가져오기
-        val file = Uri.fromFile(File(outputFile))
-
-        // Firebase Storage에 파일을 저장할 참조 설정
-        val storageRef = FirebaseStorage.getInstance().reference
+    private fun uploadToFirebase(audioData: ByteArray) {
         val userId = FirebaseAuth.getInstance().currentUser?.uid ?: "unknown_user"
-        val fileRef = storageRef.child("audio/$userId/${words[currentWordIndex]}_${System.currentTimeMillis()}.wav")
+        val storageRef = FirebaseStorage.getInstance().reference.child("audio/$userId/train/${words[currentWordIndex]}_${System.currentTimeMillis()}.wav")
 
-        // 파일 업로드
-        fileRef.putFile(file)
-            .addOnSuccessListener {
-                // 업로드 성공 시 처리
-                Toast.makeText(this, "파일 업로드 완료", Toast.LENGTH_SHORT).show()
-            }
-            .addOnFailureListener {
-                // 업로드 실패 시 처리
-                Toast.makeText(this, "파일 업로드 실패", Toast.LENGTH_SHORT).show()
-            }
+        val uploadTask = storageRef.putBytes(audioData)  // ByteArray로 바로 업로드
+        uploadTask.addOnSuccessListener {
+            Toast.makeText(this, "파일 업로드 완료", Toast.LENGTH_SHORT).show()
+        }.addOnFailureListener {
+            Toast.makeText(this, "파일 업로드 실패", Toast.LENGTH_SHORT).show()
+        }
     }
 
 
@@ -283,16 +268,10 @@ class LearningActivity : AppCompatActivity() {
     }
 
     // WAV 파일 헤더 업데이트
-    private fun updateWavHeader(filePath: String, totalAudioLen: Long, totalDataLen: Long, longSampleRate: Int, channels: Int, bitRate: Int) {
+    private fun updateWavHeader(outputStream: ByteArrayOutputStream, totalAudioLen: Long, totalDataLen: Long, longSampleRate: Int, channels: Int, bitRate: Int) {
         val header = createWavFileHeader(totalAudioLen, totalDataLen, longSampleRate, channels, bitRate)
-        try {
-            val raf = java.io.RandomAccessFile(filePath, "rw")
-            raf.seek(0) // 파일의 처음으로 이동하여 헤더 작성
-            raf.write(header)
-            raf.close()
-        } catch (e: IOException) {
-            e.printStackTrace()
-        }
+        val headerBytes = header.copyOfRange(0, 44)  // WAV 헤더
+        System.arraycopy(headerBytes, 0, outputStream.toByteArray(), 0, headerBytes.size)
     }
 
     // 녹음된 현재 단어의 파일 개수를 업데이트하는 함수
