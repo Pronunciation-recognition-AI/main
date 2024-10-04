@@ -15,10 +15,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.chaquo.python.Python
 import java.io.FileOutputStream
 import java.io.IOException
-import com.chaquo.python.android.AndroidPlatform
 import java.io.File
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -109,16 +107,13 @@ class LearningActivity : AppCompatActivity() {
             }
         }
 
-        if (!Python.isStarted()) {
-            Python.start(AndroidPlatform(this))
-        }
-
         //학습버튼
         btnLearn.setOnClickListener {
             val database = FirebaseDatabase.getInstance()
             val myRef = database.getReference("signals")
             val userId = FirebaseAuth.getInstance().currentUser?.uid ?: "unknown_user"
             Log.d("UserID", "User ID: $userId")
+            myRef.removeValue()
             // 사용자 ID와 "study" 신호를 Firebase에 전송
             val signalData = mapOf(
                 "userId" to userId,
@@ -193,7 +188,7 @@ class LearningActivity : AppCompatActivity() {
     // Firebase에 파일 업로드 함수
     private fun uploadToFirebase(audioData: ByteArray) {
         val userId = FirebaseAuth.getInstance().currentUser?.uid ?: "unknown_user"
-        val storageRef = FirebaseStorage.getInstance().reference.child("audio/$userId/train/${words[currentWordIndex]}_${System.currentTimeMillis()}.wav")
+        val storageRef = FirebaseStorage.getInstance().reference.child("audio/$userId/train/chunk${currentWordIndex+1}.wav") //파일 저장 이름
 
         val uploadTask = storageRef.putBytes(audioData)  // ByteArray로 바로 업로드
         uploadTask.addOnSuccessListener {
@@ -286,6 +281,7 @@ class LearningActivity : AppCompatActivity() {
                 val fileCount = listResult.items.size  // 전체 파일의 개수를 가져옴
 
                 // 파일 개수 업데이트
+                btnLearn.isEnabled = fileCount >= 659
                 fileCountTextView.text = "현재 Firebase에 저장된 파일: $fileCount 개"
             }
             .addOnFailureListener { exception ->

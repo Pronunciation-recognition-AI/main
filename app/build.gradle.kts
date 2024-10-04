@@ -3,7 +3,6 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     id("com.google.gms.google-services")
-    id("com.chaquo.python")  // Chaquopy 플러그인을 모듈에 적용
 }
 
 android {
@@ -61,20 +60,7 @@ android {
     }
 }
 
-chaquopy {
-    defaultConfig {
-        //buildPython("C:/Users/eogks/AppData/Local/Programs/Python/Python310/python.exe")  // 정확한 Python 3.8 경로를 지정
-        // buildPython("/usr/local/bin/python3.11")
 
-        pip{
-            install("numpy")
-            install("scikit-learn")
-            install("librosa==0.8.1")
-            install("resampy==0.2.2")
-            install("joblib")
-        }
-    }
-}
 
 dependencies {
     implementation(platform("com.google.firebase:firebase-bom:33.2.0"))

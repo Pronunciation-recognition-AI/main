@@ -12,8 +12,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.chaquo.python.Python
-import com.chaquo.python.android.AndroidPlatform
 import android.media.AudioFormat
 import android.media.MediaRecorder
 import java.io.FileOutputStream
@@ -241,11 +239,35 @@ class SpeechActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         }
     }
 
+    private fun startFirebaseSignalListener() {
+        val database = FirebaseDatabase.getInstance()
+        val userId = FirebaseAuth.getInstance().currentUser?.uid ?: "unknown_user"  // 현재 사용자 ID 가져오기
+        val userSignalRef = database.getReference("signals").child(userId)
+
+        userSignalRef.addChildEventListener(object : ChildEventListener {
+            override fun onChildAdded(dataSnapshot: DataSnapshot, previousChildName: String?) {
+                val signalData = dataSnapshot.getValue(String::class.java)
+                val message = signalData ?: "No message"
+
+                println("유저 신호 감지됨: $message")
+                tvRecognizedSpeech.text = message
+            }
+
+            override fun onChildChanged(dataSnapshot: DataSnapshot, previousChildName: String?) {}
+            override fun onChildRemoved(dataSnapshot: DataSnapshot) {}
+            override fun onChildMoved(dataSnapshot: DataSnapshot, previousChildName: String?) {}
+            override fun onCancelled(databaseError: DatabaseError) {
+                Log.w("FirebaseSignal", "loadSignal:onCancelled", databaseError.toException())
+            }
+        })
+    }
+
     private fun stopRecording() {
         val database = FirebaseDatabase.getInstance()
         val myRef = database.getReference("signals")
         val userId = FirebaseAuth.getInstance().currentUser?.uid ?: "unknown_user"
         Log.d("UserID", "User ID: $userId")
+        myRef.removeValue()
         // 사용자 ID와 "study" 신호를 Firebase에 전송
         val signalData = mapOf(
             "userId" to userId,
@@ -257,6 +279,7 @@ class SpeechActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         audioRecord.release()
         recordingThread.join()
 
+        startFirebaseSignalListener()
         Toast.makeText(this, "음성 인식 완료", Toast.LENGTH_LONG).show()
     }
 
@@ -319,6 +342,7 @@ class SpeechActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         val headerBytes = header.copyOfRange(0, 44)  // WAV 헤더
         System.arraycopy(headerBytes, 0, outputStream.toByteArray(), 0, headerBytes.size)
     }
+
 
     // 녹음된 파일 재생 함수
     private fun playRecording(filePath: String) {

@@ -8,8 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.chaquo.python.Python
-import com.chaquo.python.android.AndroidPlatform
+
 
 class MainActivity : AppCompatActivity() {
 
