@@ -118,16 +118,42 @@ class SpeechActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         }
 
         // 녹음 버튼 클릭 이벤트
+        // 녹음 버튼 클릭 이벤트
         btnRecord.setOnClickListener {
-            if (isRecording) {
-                stopRecording()
-            } else {
-                // 권한 확인 후 녹음 시작
-                if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) {
-                    startRecording()
-                } else {
-                    Toast.makeText(this, "녹음 권한이 필요합니다.", Toast.LENGTH_SHORT).show()
+            val userId = FirebaseAuth.getInstance().currentUser?.uid ?: "unknown_user"
+            val database = FirebaseDatabase.getInstance().getReference("users").child(userId)
+
+            // Firebase에서 'train' 값을 가져옴
+            database.child("train").get().addOnSuccessListener { dataSnapshot ->
+                val trainValue = dataSnapshot.getValue(Int::class.java) ?: 0 // 기본값 0
+                if (trainValue == 0) {
+                    // 'train' 값이 0이면 일반 모델로 실행하겠다는 알림을 띄움
+                    if (isRecording) {
+                        stopRecording()
+                    } else {
+                        // 권한 확인 후 녹음 시작
+                        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) {
+                            Toast.makeText(this, "일반 모델로 실행하겠습니다.", Toast.LENGTH_SHORT).show()
+                            startRecording()
+                        } else {
+                            Toast.makeText(this, "녹음 권한이 필요합니다.", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                } else if (trainValue == 1) {
+                    // 'train' 값이 1이면 원래 실행되던 코드 실행
+                    if (isRecording) {
+                        stopRecording()
+                    } else {
+                        // 권한 확인 후 녹음 시작
+                        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) {
+                            startRecording()
+                        } else {
+                            Toast.makeText(this, "녹음 권한이 필요합니다.", Toast.LENGTH_SHORT).show()
+                        }
+                    }
                 }
+            }.addOnFailureListener {
+                Toast.makeText(this, "Firebase에서 'train' 값을 가져오는 데 실패했습니다.", Toast.LENGTH_SHORT).show()
             }
         }
 
