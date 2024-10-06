@@ -1,0 +1,2640 @@
+{
+    "audio_files": [
+        {
+            "path": "dataset/data\\chunk1.wav",
+            "transcription": "나는 바지를 입고 단추를 채웁니다."
+        },
+        {
+            "path": "dataset/data\\chunk2.wav",
+            "transcription": "책상 위에 가방이 있습니다."
+        },
+        {
+            "path": "dataset/data\\chunk3.wav",
+            "transcription": "가방에 사탕과 연필을 넣을 거예요."
+        },
+        {
+            "path": "dataset/data\\chunk4.wav",
+            "transcription": "아빠와 자동차를 타고 동물원에 갑니다."
+        },
+        {
+            "path": "dataset/data\\chunk5.wav",
+            "transcription": "잘 다녀와 하면서 엄마가 뽀뽀를 해줍니다."
+        },
+        {
+            "path": "dataset/data\\chunk6.wav",
+            "transcription": "동물원에는 호랑이가 꼬리를 늘어뜨리고 있습니다."
+        },
+        {
+            "path": "dataset/data\\chunk7.wav",
+            "transcription": "나는 코끼리에게 땅콩을 줍니다."
+        },
+        {
+            "path": "dataset/data\\chunk8.wav",
+            "transcription": "코끼리는 귀가 아주 큽니다."
+        },
+        {
+            "path": "dataset/data\\chunk9.wav",
+            "transcription": "나는 동물원 놀이터에서 그네를 탑니다."
+        },
+        {
+            "path": "dataset/data\\chunk10.wav",
+            "transcription": "아빠가 토끼 풍선을 사왔습니다."
+        },
+        {
+            "path": "dataset/data\\chunk11.wav",
+            "transcription": "로봇 그림을 구경합니다."
+        },
+        {
+            "path": "dataset/data\\chunk12.wav",
+            "transcription": "그림은 못 두 개에 걸려 있습니다."
+        },
+        {
+            "path": "dataset/data\\chunk13.wav",
+            "transcription": "로봇은 긴 눈썹 괴물과 싸움을 합니다."
+        },
+        {
+            "path": "dataset/data\\chunk14.wav",
+            "transcription": "나무에는 참새 세 마리가 짹짹 거리고 나무 아래 풀밭에는 메뚜기가 있습니다."
+        },
+        {
+            "path": "dataset/data\\chunk15.wav",
+            "transcription": "엄마에게 전화를 합니다."
+        },
+        {
+            "path": "dataset/data\\chunk16.wav",
+            "transcription": "엄마 동물원 재미있어요."
+        },
+        {
+            "path": "dataset/data\\chunk17.wav",
+            "transcription": "문 열어."
+        },
+        {
+            "path": "dataset/data\\chunk18.wav",
+            "transcription": "문 열어?"
+        },
+        {
+            "path": "dataset/data\\chunk19.wav",
+            "transcription": "나무가 많아."
+        },
+        {
+            "path": "dataset/data\\chunk20.wav",
+            "transcription": "나무가 많아?"
+        },
+        {
+            "path": "dataset/data\\chunk21.wav",
+            "transcription": "내일 만나."
+        },
+        {
+            "path": "dataset/data\\chunk22.wav",
+            "transcription": "내일 만나?"
+        },
+        {
+            "path": "dataset/data\\chunk23.wav",
+            "transcription": "이제 내려."
+        },
+        {
+            "path": "dataset/data\\chunk24.wav",
+            "transcription": "이제 내려?"
+        },
+        {
+            "path": "dataset/data\\chunk25.wav",
+            "transcription": "머리 말려."
+        },
+        {
+            "path": "dataset/data\\chunk26.wav",
+            "transcription": "머리 말려?"
+        },
+        {
+            "path": "dataset/data\\chunk27.wav",
+            "transcription": "여기 놔요."
+        },
+        {
+            "path": "dataset/data\\chunk28.wav",
+            "transcription": "여기 놔요?"
+        },
+        {
+            "path": "dataset/data\\chunk29.wav",
+            "transcription": "나비가 날아요."
+        },
+        {
+            "path": "dataset/data\\chunk30.wav",
+            "transcription": "나비가 날아요?"
+        },
+        {
+            "path": "dataset/data\\chunk31.wav",
+            "transcription": "엄마가 노래해."
+        },
+        {
+            "path": "dataset/data\\chunk32.wav",
+            "transcription": "엄마가 노래해?"
+        },
+        {
+            "path": "dataset/data\\chunk33.wav",
+            "transcription": "머리 말려요."
+        },
+        {
+            "path": "dataset/data\\chunk34.wav",
+            "transcription": "머리 말려요?"
+        },
+        {
+            "path": "dataset/data\\chunk35.wav",
+            "transcription": "여기 놨어요."
+        },
+        {
+            "path": "dataset/data\\chunk36.wav",
+            "transcription": "여기 놨어요?"
+        },
+        {
+            "path": "dataset/data\\chunk37.wav",
+            "transcription": "여기 놔."
+        },
+        {
+            "path": "dataset/data\\chunk38.wav",
+            "transcription": "여기 놔?"
+        },
+        {
+            "path": "dataset/data\\chunk39.wav",
+            "transcription": "여기 놔요."
+        },
+        {
+            "path": "dataset/data\\chunk40.wav",
+            "transcription": "여기 놔요?"
+        },
+        {
+            "path": "dataset/data\\chunk41.wav",
+            "transcription": "머리 말려."
+        },
+        {
+            "path": "dataset/data\\chunk42.wav",
+            "transcription": "머리 말려?"
+        },
+        {
+            "path": "dataset/data\\chunk43.wav",
+            "transcription": "머리 말려요."
+        },
+        {
+            "path": "dataset/data\\chunk44.wav",
+            "transcription": "머리 말려요?"
+        },
+        {
+            "path": "dataset/data\\chunk45.wav",
+            "transcription": "여기 놨어요."
+        },
+        {
+            "path": "dataset/data\\chunk46.wav",
+            "transcription": "여기 놨어요?"
+        },
+        {
+            "path": "dataset/data\\chunk47.wav",
+            "transcription": "머리 말렸어요."
+        },
+        {
+            "path": "dataset/data\\chunk48.wav",
+            "transcription": "머리 말렸어요?"
+        },
+        {
+            "path": "dataset/data\\chunk49.wav",
+            "transcription": "여기 놓을 거예요."
+        },
+        {
+            "path": "dataset/data\\chunk50.wav",
+            "transcription": "여기 놓을 거예요?"
+        },
+        {
+            "path": "dataset/data\\chunk51.wav",
+            "transcription": "밥 먹었죠."
+        },
+        {
+            "path": "dataset/data\\chunk52.wav",
+            "transcription": "밥 먹었죠?"
+        },
+        {
+            "path": "dataset/data\\chunk53.wav",
+            "transcription": "집에 아무도 없겠지."
+        },
+        {
+            "path": "dataset/data\\chunk54.wav",
+            "transcription": "집에 아무도 없겠지?"
+        },
+        {
+            "path": "dataset/data\\chunk55.wav",
+            "transcription": "발이 얼었어요."
+        },
+        {
+            "path": "dataset/data\\chunk56.wav",
+            "transcription": "발이 얼었어요?"
+        },
+        {
+            "path": "dataset/data\\chunk57.wav",
+            "transcription": "길이 많이 막혀요."
+        },
+        {
+            "path": "dataset/data\\chunk58.wav",
+            "transcription": "길이 많이 막혀요?"
+        },
+        {
+            "path": "dataset/data\\chunk59.wav",
+            "transcription": "선생님이 하셨어요."
+        },
+        {
+            "path": "dataset/data\\chunk60.wav",
+            "transcription": "선생님이 하셨어요?"
+        },
+        {
+            "path": "dataset/data\\chunk61.wav",
+            "transcription": "거기 갈래."
+        },
+        {
+            "path": "dataset/data\\chunk62.wav",
+            "transcription": "거기 갈래?"
+        },
+        {
+            "path": "dataset/data\\chunk63.wav",
+            "transcription": "그렇게 될 리가 없지."
+        },
+        {
+            "path": "dataset/data\\chunk64.wav",
+            "transcription": "그렇게 될 리가 없지?"
+        },
+        {
+            "path": "dataset/data\\chunk65.wav",
+            "transcription": "전화 왔어요."
+        },
+        {
+            "path": "dataset/data\\chunk66.wav",
+            "transcription": "전화 왔어요?"
+        },
+        {
+            "path": "dataset/data\\chunk67.wav",
+            "transcription": "여기까지 걸어 왔어요."
+        },
+        {
+            "path": "dataset/data\\chunk68.wav",
+            "transcription": "여기까지 걸어 왔어요?"
+        },
+        {
+            "path": "dataset/data\\chunk69.wav",
+            "transcription": "방이 추운 거 같애."
+        },
+        {
+            "path": "dataset/data\\chunk70.wav",
+            "transcription": "방이 추운 거 같애?"
+        },
+        {
+            "path": "dataset/data\\chunk71.wav",
+            "transcription": "날씨가 추워요."
+        },
+        {
+            "path": "dataset/data\\chunk72.wav",
+            "transcription": "날씨가 추워요?"
+        },
+        {
+            "path": "dataset/data\\chunk73.wav",
+            "transcription": "음악 켜."
+        },
+        {
+            "path": "dataset/data\\chunk74.wav",
+            "transcription": "음악 켜?"
+        },
+        {
+            "path": "dataset/data\\chunk75.wav",
+            "transcription": "날씨가 더워요."
+        },
+        {
+            "path": "dataset/data\\chunk76.wav",
+            "transcription": "날씨가 더워요?"
+        },
+        {
+            "path": "dataset/data\\chunk77.wav",
+            "transcription": "백화점에 가서 목걸이와 반지를 샀습니다."
+        },
+        {
+            "path": "dataset/data\\chunk78.wav",
+            "transcription": "휴지를 버려 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk79.wav",
+            "transcription": "우체국은 병원 앞에 있어요."
+        },
+        {
+            "path": "dataset/data\\chunk80.wav",
+            "transcription": "약을 하루에 두 번씩 드세요."
+        },
+        {
+            "path": "dataset/data\\chunk81.wav",
+            "transcription": "감기에 걸리지 않도록 조심해라."
+        },
+        {
+            "path": "dataset/data\\chunk82.wav",
+            "transcription": "내가 퇴근하는 시간은 항상 같다."
+        },
+        {
+            "path": "dataset/data\\chunk83.wav",
+            "transcription": "물이 차다."
+        },
+        {
+            "path": "dataset/data\\chunk84.wav",
+            "transcription": "오늘처럼 눈이 오는 날은 조심해서 운전해야 한다."
+        },
+        {
+            "path": "dataset/data\\chunk85.wav",
+            "transcription": "당신이 만든 작품을 설명해 보세요."
+        },
+        {
+            "path": "dataset/data\\chunk86.wav",
+            "transcription": "당근은 무슨 색입니까?"
+        },
+        {
+            "path": "dataset/data\\chunk87.wav",
+            "transcription": "커피를 마셔서 잠이 오지 않는다."
+        },
+        {
+            "path": "dataset/data\\chunk88.wav",
+            "transcription": "여기에 기다리세요."
+        },
+        {
+            "path": "dataset/data\\chunk89.wav",
+            "transcription": "전화번호가 어떻게 됩니까?"
+        },
+        {
+            "path": "dataset/data\\chunk90.wav",
+            "transcription": "오래된 음식을 먹지 마세요."
+        },
+        {
+            "path": "dataset/data\\chunk91.wav",
+            "transcription": "눈이 내리는 겨울이 빨리 왔으면 좋겠습니다."
+        },
+        {
+            "path": "dataset/data\\chunk92.wav",
+            "transcription": "아침에 안개가 껴서 앞을 보기가 힘들어요."
+        },
+        {
+            "path": "dataset/data\\chunk93.wav",
+            "transcription": "수박이 달다."
+        },
+        {
+            "path": "dataset/data\\chunk94.wav",
+            "transcription": "일을 마치고 갈 시간이 충분합니다."
+        },
+        {
+            "path": "dataset/data\\chunk95.wav",
+            "transcription": "내가 읽은 책을 너한테 빌려줄게."
+        },
+        {
+            "path": "dataset/data\\chunk96.wav",
+            "transcription": "음악을 들으며 운동해 보세요."
+        },
+        {
+            "path": "dataset/data\\chunk97.wav",
+            "transcription": "청소를 하다가 내가 잃어버렸던 반지를 찾았다."
+        },
+        {
+            "path": "dataset/data\\chunk98.wav",
+            "transcription": "해가 뜬다."
+        },
+        {
+            "path": "dataset/data\\chunk99.wav",
+            "transcription": "주소를 알려 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk100.wav",
+            "transcription": "좋아하는 음식이 뭡니까?"
+        },
+        {
+            "path": "dataset/data\\chunk101.wav",
+            "transcription": "외투와 장갑을 벗고 들어와요."
+        },
+        {
+            "path": "dataset/data\\chunk102.wav",
+            "transcription": "경찰이 이 곳으로 곧 온다고 했어요."
+        },
+        {
+            "path": "dataset/data\\chunk103.wav",
+            "transcription": "길이 너무 막혀서 약속에 늦었습니다."
+        },
+        {
+            "path": "dataset/data\\chunk104.wav",
+            "transcription": "편식을 하는 습관은 건강에 해로워요."
+        },
+        {
+            "path": "dataset/data\\chunk105.wav",
+            "transcription": "한 줄로 똑바로 서 주십시오."
+        },
+        {
+            "path": "dataset/data\\chunk106.wav",
+            "transcription": "냉면을 먹으러 식당에 갑니다."
+        },
+        {
+            "path": "dataset/data\\chunk107.wav",
+            "transcription": "사진을 찍어 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk108.wav",
+            "transcription": "저녁에 무엇을 먹을까?"
+        },
+        {
+            "path": "dataset/data\\chunk109.wav",
+            "transcription": "배가 고프다."
+        },
+        {
+            "path": "dataset/data\\chunk110.wav",
+            "transcription": "열쇠가 없어서 문을 열지 못했다."
+        },
+        {
+            "path": "dataset/data\\chunk111.wav",
+            "transcription": "어두운 곳에서 책을 읽지 마세요."
+        },
+        {
+            "path": "dataset/data\\chunk112.wav",
+            "transcription": "버스에 사람이 많아서 내가 앉을 자리가 없다."
+        },
+        {
+            "path": "dataset/data\\chunk113.wav",
+            "transcription": "냉장고에서 두부와 야채를 꺼냅니다."
+        },
+        {
+            "path": "dataset/data\\chunk114.wav",
+            "transcription": "매일 강아지를 데리고 산책을 간다."
+        },
+        {
+            "path": "dataset/data\\chunk115.wav",
+            "transcription": "차가 내뿜는 연기 때문에 하늘이 뿌옇다."
+        },
+        {
+            "path": "dataset/data\\chunk116.wav",
+            "transcription": "숫자가 적혀있는 카드를 골라보세요."
+        },
+        {
+            "path": "dataset/data\\chunk117.wav",
+            "transcription": "화장실은 어디에 있습니까?"
+        },
+        {
+            "path": "dataset/data\\chunk118.wav",
+            "transcription": "빨간 불에 건너가지 마십시오."
+        },
+        {
+            "path": "dataset/data\\chunk119.wav",
+            "transcription": "밥을 먹자."
+        },
+        {
+            "path": "dataset/data\\chunk120.wav",
+            "transcription": "칭찬을 받는 것은 기분 좋은 일이다."
+        },
+        {
+            "path": "dataset/data\\chunk121.wav",
+            "transcription": "우리 가족은 모두 여섯 명입니다."
+        },
+        {
+            "path": "dataset/data\\chunk122.wav",
+            "transcription": "일을 빨리 끝내고 집으로 갈께요."
+        },
+        {
+            "path": "dataset/data\\chunk123.wav",
+            "transcription": "창문은 열어 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk124.wav",
+            "transcription": "가을이 오면 나무에 단풍이 든다."
+        },
+        {
+            "path": "dataset/data\\chunk125.wav",
+            "transcription": "비가 내린 길은 미끄러워서 매우 위험하다."
+        },
+        {
+            "path": "dataset/data\\chunk126.wav",
+            "transcription": "우리가 이겼다는 소식을 듣고 감격했다."
+        },
+        {
+            "path": "dataset/data\\chunk127.wav",
+            "transcription": "설명서를 읽어보고 사용하세요."
+        },
+        {
+            "path": "dataset/data\\chunk128.wav",
+            "transcription": "신발을 벗어 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk129.wav",
+            "transcription": "회사 앞에서 일곱 시에 만납시다."
+        },
+        {
+            "path": "dataset/data\\chunk130.wav",
+            "transcription": "주차장은 지하에 있습니다."
+        },
+        {
+            "path": "dataset/data\\chunk131.wav",
+            "transcription": "옷이 크다."
+        },
+        {
+            "path": "dataset/data\\chunk132.wav",
+            "transcription": "나는 고추가 들어간 음식은 맵지만 좋아한다."
+        },
+        {
+            "path": "dataset/data\\chunk133.wav",
+            "transcription": "냉장고가 고장나서 수리를 맡겼습니다."
+        },
+        {
+            "path": "dataset/data\\chunk134.wav",
+            "transcription": "우표 한 장은 얼마입니까?"
+        },
+        {
+            "path": "dataset/data\\chunk135.wav",
+            "transcription": "물건을 훔친 도둑을 경찰이 차에 태웠다."
+        },
+        {
+            "path": "dataset/data\\chunk136.wav",
+            "transcription": "쓰레기를 분리하는 것을 잊지 마세요."
+        },
+        {
+            "path": "dataset/data\\chunk137.wav",
+            "transcription": "아기 옷을 벗기고 입히면서 빗으로 머리도 빗겨 주었다."
+        },
+        {
+            "path": "dataset/data\\chunk138.wav",
+            "transcription": "밝은 빛으로 곱하기 공부를 하다가 급하게 책 한 권을 읽었다."
+        },
+        {
+            "path": "dataset/data\\chunk139.wav",
+            "transcription": "큰 빚을 져서 맛있는 찜닭도 못 먹고 밤낮으로 뛰어다녔다."
+        },
+        {
+            "path": "dataset/data\\chunk140.wav",
+            "transcription": "사기그릇 가게로부터 사기를 당했다는 걸 알고 그들은 사기를 떨어졌다."
+        },
+        {
+            "path": "dataset/data\\chunk141.wav",
+            "transcription": "서른여덟의 김유신은 권력을 이용해 불법으로 생산라인을 개조하였다."
+        },
+        {
+            "path": "dataset/data\\chunk142.wav",
+            "transcription": "소주와 김밥과 통닭을 즐겨 먹은 까닭에 수일 내에 돼지가 될 것 같다."
+        },
+        {
+            "path": "dataset/data\\chunk143.wav",
+            "transcription": "원룸에 사니까 절약할 필요가 없어서 방을 밝게 한다."
+        },
+        {
+            "path": "dataset/data\\chunk144.wav",
+            "transcription": "일요일날에는 안암 일 동에서 이 동으로 이동하는 것과 은근히 일하다."
+        },
+        {
+            "path": "dataset/data\\chunk145.wav",
+            "transcription": "저 병에 든 약을 마시면 병에 차도가 있을 것이다."
+        },
+        {
+            "path": "dataset/data\\chunk146.wav",
+            "transcription": "음운론을 가르치시던 담임선생님은 흙에서 넓죽한 고구마를 캐셨다."
+        },
+        {
+            "path": "dataset/data\\chunk147.wav",
+            "transcription": "서울역에서 김연아를 보고 그 찬란한 모습에 넋이 나갔다."
+        },
+        {
+            "path": "dataset/data\\chunk148.wav",
+            "transcription": "산기슭에 있는 장미꽃으로 장식을 하려다가 가시의 끝을 만졌다."
+        },
+        {
+            "path": "dataset/data\\chunk149.wav",
+            "transcription": "늦여름이나 가을날에 상견례를 하려고 온라인으로 식당을 예약했다."
+        },
+        {
+            "path": "dataset/data\\chunk150.wav",
+            "transcription": "넓게 지어진 연륙교가 효과적으로 제 몫을 다 해내고 있다."
+        },
+        {
+            "path": "dataset/data\\chunk151.wav",
+            "transcription": "이 모 씨의 이모가 마침내 고소 철차를 밟게 되었다."
+        },
+        {
+            "path": "dataset/data\\chunk152.wav",
+            "transcription": "의견 작성 시 띄어쓰기의 원칙에 주의해 주십시오."
+        },
+        {
+            "path": "dataset/data\\chunk153.wav",
+            "transcription": "아들과 병원에 가보니 하필 늑막염이었다."
+        },
+        {
+            "path": "dataset/data\\chunk154.wav",
+            "transcription": "애달픈 개처럼 해 질 녘까지 엄마를 기다렸다."
+        },
+        {
+            "path": "dataset/data\\chunk155.wav",
+            "transcription": "어제는 허리가 아파서 거동이 불편했다."
+        },
+        {
+            "path": "dataset/data\\chunk156.wav",
+            "transcription": "에누리 없이 게와 고등어를 파는 사람들을 헤아려 보았다."
+        },
+        {
+            "path": "dataset/data\\chunk157.wav",
+            "transcription": "오전에 호루라기를 챙겨서 고사장으로 갔다."
+        },
+        {
+            "path": "dataset/data\\chunk158.wav",
+            "transcription": "우리는 후식으로 과자를 먹으며 구름을 보았다."
+        },
+        {
+            "path": "dataset/data\\chunk159.wav",
+            "transcription": "으름장을 놓아서 그를 흐느끼게 만들었다."
+        },
+        {
+            "path": "dataset/data\\chunk160.wav",
+            "transcription": "이동할 때를 기다리며 히히덕거렸다."
+        },
+        {
+            "path": "dataset/data\\chunk161.wav",
+            "transcription": "야생화 향기를 맡아보더니 고개를 약간 갸웃뚱거렸다."
+        },
+        {
+            "path": "dataset/data\\chunk162.wav",
+            "transcription": "얘는 얘기꾼이라 걔보다 얘기를 잘해."
+        },
+        {
+            "path": "dataset/data\\chunk163.wav",
+            "transcription": "여러가지 현악기가 결이 곱다."
+        },
+        {
+            "path": "dataset/data\\chunk164.wav",
+            "transcription": "예금 상품의 혜택을 계산해보았다."
+        },
+        {
+            "path": "dataset/data\\chunk165.wav",
+            "transcription": "와전된 과거의 일이 화를 불러왔다."
+        },
+        {
+            "path": "dataset/data\\chunk166.wav",
+            "transcription": "왜가리 괘씸하게도 횃대를 부러뜨렸다."
+        },
+        {
+            "path": "dataset/data\\chunk167.wav",
+            "transcription": "외삼촌은 금융업 분야의 회식을 괴로워했다."
+        },
+        {
+            "path": "dataset/data\\chunk168.wav",
+            "transcription": "요즘 교사들 사이에서 효도 관광이 유행이다."
+        },
+        {
+            "path": "dataset/data\\chunk169.wav",
+            "transcription": "워낙 권력을 좋아해서 훨씬 더 회장 자리에 집착했다."
+        },
+        {
+            "path": "dataset/data\\chunk170.wav",
+            "transcription": "웨딩드레스에 대해 궤변을 늘어놓으며 훼방을 놓았다."
+        },
+        {
+            "path": "dataset/data\\chunk171.wav",
+            "transcription": "위대한 귀농인을 만나기 위해서 휘파람을 불며 옷 입고 나갔다."
+        },
+        {
+            "path": "dataset/data\\chunk172.wav",
+            "transcription": "유도부가 휴가지에서 귤을 사 왔다."
+        },
+        {
+            "path": "dataset/data\\chunk173.wav",
+            "transcription": "의사는 축의금과 함께 희소식을 전했다."
+        },
+        {
+            "path": "dataset/data\\chunk174.wav",
+            "transcription": "가평의 고추밭에서 기적적으로 구출되었다."
+        },
+        {
+            "path": "dataset/data\\chunk175.wav",
+            "transcription": "까치는 꾸물거리다가 구멍 사이에 끼었다."
+        },
+        {
+            "path": "dataset/data\\chunk176.wav",
+            "transcription": "나무에 널린 니트들이 누구의 것인지 궁금했다."
+        },
+        {
+            "path": "dataset/data\\chunk177.wav",
+            "transcription": "다리 아래 사는 두더지는 땅을 디딜 수 없었다."
+        },
+        {
+            "path": "dataset/data\\chunk178.wav",
+            "transcription": "따가운 자외선에 뚜껑이 검은 빛을 띠었다."
+        },
+        {
+            "path": "dataset/data\\chunk179.wav",
+            "transcription": "라면을 먹으면서 솜이불 위에서 루마니아 축구 리그를 보았다."
+        },
+        {
+            "path": "dataset/data\\chunk180.wav",
+            "transcription": "마침내 무서운 미로에서 빠져나왔다."
+        },
+        {
+            "path": "dataset/data\\chunk181.wav",
+            "transcription": "바다에서 부드러운 바람을 맞으며 비빔밥을 먹었다."
+        },
+        {
+            "path": "dataset/data\\chunk182.wav",
+            "transcription": "빠르게 뛰었다가 뿌리에 걸려서 발목을 삐었다."
+        },
+        {
+            "path": "dataset/data\\chunk183.wav",
+            "transcription": "사다리 위에서 수다를 떨다 보니 시간이 다 되었다."
+        },
+        {
+            "path": "dataset/data\\chunk184.wav",
+            "transcription": "싸다고 하는 씨감자로 죽을 쑤다 말았다."
+        },
+        {
+            "path": "dataset/data\\chunk185.wav",
+            "transcription": "자전거 가게에서 주민 회의가 지금 진행 중이다."
+        },
+        {
+            "path": "dataset/data\\chunk186.wav",
+            "transcription": "짜게 끓인 찌개를 쭈그려 앉아서 먹었다."
+        },
+        {
+            "path": "dataset/data\\chunk187.wav",
+            "transcription": "차선을 넘나들며 치열하게 추격전을 벌였다."
+        },
+        {
+            "path": "dataset/data\\chunk188.wav",
+            "transcription": "카메라와 쿠키를 들고 있는 남자가 가장 키가 크다."
+        },
+        {
+            "path": "dataset/data\\chunk189.wav",
+            "transcription": "타조는 투명한 유리에서 칼날과 티끌을 발견했다."
+        },
+        {
+            "path": "dataset/data\\chunk190.wav",
+            "transcription": "파란 눈과 하얀 피부 덕분에 첫인상이 푸근해보였다."
+        },
+        {
+            "path": "dataset/data\\chunk191.wav",
+            "transcription": "하늘이는 후미진 골목 끝에서 히죽거렸다."
+        },
+        {
+            "path": "dataset/data\\chunk192.wav",
+            "transcription": "무지개 일곱 색깔은 빨 주 노 초 파 남 보입니다."
+        },
+        {
+            "path": "dataset/data\\chunk193.wav",
+            "transcription": "일 주일은 월 화 수 목 금 토 일요일입니다."
+        },
+        {
+            "path": "dataset/data\\chunk194.wav",
+            "transcription": "설날은 일 월 일 일입니다."
+        },
+        {
+            "path": "dataset/data\\chunk195.wav",
+            "transcription": "크리스마스는* 십 이 월 이십 오 일입니다."
+        },
+        {
+            "path": "dataset/data\\chunk196.wav",
+            "transcription": "지금 계절은 가을입니다."
+        },
+        {
+            "path": "dataset/data\\chunk197.wav",
+            "transcription": "어제는 날씨가 더웠고 오늘 날씨는 선선했다."
+        },
+        {
+            "path": "dataset/data\\chunk198.wav",
+            "transcription": "일 년은 삼백 육십 오 일이고 일 주일은 칠 일입니다."
+        },
+        {
+            "path": "dataset/data\\chunk199.wav",
+            "transcription": "하루는 이십 사 시간이고 일 분은 육십 초입니다."
+        },
+        {
+            "path": "dataset/data\\chunk200.wav",
+            "transcription": "미영이랑 나연이는 단짝입니다."
+        },
+        {
+            "path": "dataset/data\\chunk201.wav",
+            "transcription": "미영이와 나연이는 노래하며 놉니다."
+        },
+        {
+            "path": "dataset/data\\chunk202.wav",
+            "transcription": "마루 위에 나란히 누워 낭랑히 노래합니다."
+        },
+        {
+            "path": "dataset/data\\chunk203.wav",
+            "transcription": "나연이는 노래를 매우 많이 압니다."
+        },
+        {
+            "path": "dataset/data\\chunk204.wav",
+            "transcription": "노래도 잘해서 미영이에게 알려 줍니다."
+        },
+        {
+            "path": "dataset/data\\chunk205.wav",
+            "transcription": "미영이는 음악에 어울리는 안무를 마련합니다."
+        },
+        {
+            "path": "dataset/data\\chunk206.wav",
+            "transcription": "어느 날 나연이는 미영이를 놀립니다."
+        },
+        {
+            "path": "dataset/data\\chunk207.wav",
+            "transcription": "자기보다 노래를 못한다고 놀립니다."
+        },
+        {
+            "path": "dataset/data\\chunk208.wav",
+            "transcription": "미영이는 남몰래 노래를 연마합니다."
+        },
+        {
+            "path": "dataset/data\\chunk209.wav",
+            "transcription": "미영이의 능력이 나날이 늘어납니다."
+        },
+        {
+            "path": "dataset/data\\chunk210.wav",
+            "transcription": "그래서 나연이는 더 이상 미영이를 놀릴 수 없게 되었습니다."
+        },
+        {
+            "path": "dataset/data\\chunk211.wav",
+            "transcription": "나연이는 사과했고 둘은 다시 사이가 좋아졌습니다."
+        },
+        {
+            "path": "dataset/data\\chunk212.wav",
+            "transcription": "나는 라면을 매우 좋아한다."
+        },
+        {
+            "path": "dataset/data\\chunk213.wav",
+            "transcription": "생라면도 컵라면도 좋지만 뭐니 뭐니 해도 끓인 라면이 제일 좋다."
+        },
+        {
+            "path": "dataset/data\\chunk214.wav",
+            "transcription": "양은냄비를 꺼 내 가스레인지 위에 올리고 물이 끓을 때까지 조리법을 읽는다."
+        },
+        {
+            "path": "dataset/data\\chunk215.wav",
+            "transcription": "물이 보글보글 끓기 시작하면 면과 스프를 넣고 끓인다."
+        },
+        {
+            "path": "dataset/data\\chunk216.wav",
+            "transcription": "계란 노른자가 익는 모습을 보고 있을 때가 가장 즐거운 순간이다."
+        },
+        {
+            "path": "dataset/data\\chunk217.wav",
+            "transcription": "얼른 먹고 싶어서 군침을 꿀떡꿀떡 삼키면서도 조리 시간을 지키는 것이 나의 철칙이다."
+        },
+        {
+            "path": "dataset/data\\chunk218.wav",
+            "transcription": "열과 성을 다해 만든 라면을 한 젓가락 먹으면 절로 미소가 난다."
+        },
+        {
+            "path": "dataset/data\\chunk219.wav",
+            "transcription": "입에서 김이 호호 나오고 땀이 뻘뻘 나지만 젓가락질을 멈출 수가 없다."
+        },
+        {
+            "path": "dataset/data\\chunk220.wav",
+            "transcription": "그야말로 무아지경에 빠지고 마는 것이다."
+        },
+        {
+            "path": "dataset/data\\chunk221.wav",
+            "transcription": "남일이네 야옹이는 멍멍이를 미워합니다."
+        },
+        {
+            "path": "dataset/data\\chunk222.wav",
+            "transcription": "야옹이는 멍멍이의 마음을 모릅니다."
+        },
+        {
+            "path": "dataset/data\\chunk223.wav",
+            "transcription": "그래서 멍멍이랑 놀아주지 않습니다."
+        },
+        {
+            "path": "dataset/data\\chunk224.wav",
+            "transcription": "은행나무 위에는 야옹이만 올라옵니다."
+        },
+        {
+            "path": "dataset/data\\chunk225.wav",
+            "transcription": "무모한 멍멍이는 나무 위로 날아오릅니다."
+        },
+        {
+            "path": "dataset/data\\chunk226.wav",
+            "transcription": "그렇지만 너무 높아서 오르기가 어렵습니다."
+        },
+        {
+            "path": "dataset/data\\chunk227.wav",
+            "transcription": "야옹이는 매일매일 나무 위에 머무릅니다."
+        },
+        {
+            "path": "dataset/data\\chunk228.wav",
+            "transcription": "위에서 얄미운 울음만 웁니다."
+        },
+        {
+            "path": "dataset/data\\chunk229.wav",
+            "transcription": "나무 아래 누워있는 멍멍이는 무료합니다."
+        },
+        {
+            "path": "dataset/data\\chunk230.wav",
+            "transcription": "야옹이는 야밤에만 아래로 내려옵니다."
+        },
+        {
+            "path": "dataset/data\\chunk231.wav",
+            "transcription": "우울한 멍멍이는 애먼 나를 원망합니다."
+        },
+        {
+            "path": "dataset/data\\chunk232.wav",
+            "transcription": "우리나라의 가을은 참으로 아름답다."
+        },
+        {
+            "path": "dataset/data\\chunk233.wav",
+            "transcription": "무엇보다도 산에 오를 땐 더욱 더 그 빼어난 아름다움이 느껴진다."
+        },
+        {
+            "path": "dataset/data\\chunk234.wav",
+            "transcription": "쓰다듬어진 듯한 완만함과 깎아 놓은 듯한 뾰족함이 어우러진 산등성이를 따라 오르다 보면 절로 감탄을 금할 수가 없게 된다."
+        },
+        {
+            "path": "dataset/data\\chunk235.wav",
+            "transcription": "붉은 색 푸른색 노란색 등의 여러 가지 색깔들이 어우러져 타는 듯한 감동을 주며 나아가 신비롭기까지 하다."
+        },
+        {
+            "path": "dataset/data\\chunk236.wav",
+            "transcription": "숲 속에 누워서 하늘을 바라보라."
+        },
+        {
+            "path": "dataset/data\\chunk237.wav",
+            "transcription": "쌍쌍이 짝지어져 있는 듯한 흰 구름 높고 파란 하늘을 쳐다보고 있노라면 과연 예부터 가을을 천고마비의 계절이라 일컫는 이유를 알게 될 것만 같다."
+        },
+        {
+            "path": "dataset/data\\chunk238.wav",
+            "transcription": "가을에는 또한 오곡백과 등 먹거리가 풍성하기 때문에 결실의 계절이라고도 한다."
+        },
+        {
+            "path": "dataset/data\\chunk239.wav",
+            "transcription": "햅쌀 밤 호두뿐만 아니라 대추 여러 가지 떡 크고 작은 과일들을 맛볼 수 있는데 가을의 대표적인 명절인 추석에 우리는 이것들을 쌓아놓고 조상님들께 차례를 지내기도 한다."
+        },
+        {
+            "path": "dataset/data\\chunk240.wav",
+            "transcription": "또한 가을은 독서 계절이라고도 하여 책을 읽으며 시시때때로 명상에 잠기기도 하는데 독서는 우리에게 마음을 잘찌우고 아름답게 하는 힘을 주기 때문이다."
+        },
+        {
+            "path": "dataset/data\\chunk241.wav",
+            "transcription": "어제 친구와 극장에 갔다."
+        },
+        {
+            "path": "dataset/data\\chunk242.wav",
+            "transcription": "한 시 삼십 분쯤 극장에 도착했는데 일요일이라 그런지 사람들로 북적였다."
+        },
+        {
+            "path": "dataset/data\\chunk243.wav",
+            "transcription": "두 시에 하는 영화는 모두 매진이어서 네 시까지 기다렸다가 영화를 보아야 했다."
+        },
+        {
+            "path": "dataset/data\\chunk244.wav",
+            "transcription": "나는 영화를 보면서 내용이 너무 슬퍼서 계속 눈물이 났다."
+        },
+        {
+            "path": "dataset/data\\chunk245.wav",
+            "transcription": "그러나 같이 간 친구는 전혀 눈물을 보이지 않았다."
+        },
+        {
+            "path": "dataset/data\\chunk246.wav",
+            "transcription": "친한 친구들과 함께 한탄강에 래프팅을 갔다."
+        },
+        {
+            "path": "dataset/data\\chunk247.wav",
+            "transcription": "날이 흐린 편이라 래프팅을 온 사람들은 많지 않았다."
+        },
+        {
+            "path": "dataset/data\\chunk248.wav",
+            "transcription": "우리는 헬멧과 구명조끼를 착용하고 보트에 탔다."
+        },
+        {
+            "path": "dataset/data\\chunk249.wav",
+            "transcription": "안전 요원의 구령에 맞춰 열심히 노를 저었다."
+        },
+        {
+            "path": "dataset/data\\chunk250.wav",
+            "transcription": "물살이 빠른 곳으로 가자 보트가 빨라져 더 신이 났다."
+        },
+        {
+            "path": "dataset/data\\chunk251.wav",
+            "transcription": "정신없이 놀다 보니 어느새 두 시간이 훌쩍 지났다."
+        },
+        {
+            "path": "dataset/data\\chunk252.wav",
+            "transcription": "다음 여름에도 꼭 다시 오자고 돌아오는 길에 친구들과 약속했다."
+        },
+        {
+            "path": "dataset/data\\chunk253.wav",
+            "transcription": "지하철은 어디에서 타요?"
+        },
+        {
+            "path": "dataset/data\\chunk254.wav",
+            "transcription": "여기 엘리베이터를 타고 지하 일 층으로 내려가세요."
+        },
+        {
+            "path": "dataset/data\\chunk255.wav",
+            "transcription": "티머니 카드는 어디에 살 수 있어요?"
+        },
+        {
+            "path": "dataset/data\\chunk256.wav",
+            "transcription": "편의점이나 자동판매기에서 살 수 있어요."
+        },
+        {
+            "path": "dataset/data\\chunk257.wav",
+            "transcription": "여기에서 몇동역까지 어떻게 가요?"
+        },
+        {
+            "path": "dataset/data\\chunk258.wav",
+            "transcription": "공항철도를 타고 서울역까지 가서 사 호선으로 갈아타시면 돼요."
+        },
+        {
+            "path": "dataset/data\\chunk259.wav",
+            "transcription": "이 버스를 타려면 어디에 가야 돼요?"
+        },
+        {
+            "path": "dataset/data\\chunk260.wav",
+            "transcription": "저기 중앙차로에 있는 정류장에서 타면 돼요."
+        },
+        {
+            "path": "dataset/data\\chunk261.wav",
+            "transcription": "이 버스 몇동호텔 앞에 가요?"
+        },
+        {
+            "path": "dataset/data\\chunk262.wav",
+            "transcription": "네 갑니다."
+        },
+        {
+            "path": "dataset/data\\chunk263.wav",
+            "transcription": "택시 어디에서 타요?"
+        },
+        {
+            "path": "dataset/data\\chunk264.wav",
+            "transcription": "호텔 앞에 택시 정류장이 있습니다."
+        },
+        {
+            "path": "dataset/data\\chunk265.wav",
+            "transcription": "기사님 인천공항으로 가 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk266.wav",
+            "transcription": "네 알겠습니다."
+        },
+        {
+            "path": "dataset/data\\chunk267.wav",
+            "transcription": "공항까지 얼마나 걸려요?"
+        },
+        {
+            "path": "dataset/data\\chunk268.wav",
+            "transcription": "한 시간쯤 걸려요."
+        },
+        {
+            "path": "dataset/data\\chunk269.wav",
+            "transcription": "어디에서 세워 드릴까요?"
+        },
+        {
+            "path": "dataset/data\\chunk270.wav",
+            "transcription": "저 십 번 게이트 앞에서 세워 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk271.wav",
+            "transcription": "뭐 드릴까요?"
+        },
+        {
+            "path": "dataset/data\\chunk272.wav",
+            "transcription": "불고기 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk273.wav",
+            "transcription": "주문 받을까요?"
+        },
+        {
+            "path": "dataset/data\\chunk274.wav",
+            "transcription": "네, 떡볶이 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk275.wav",
+            "transcription": "주문하시겠어요?"
+        },
+        {
+            "path": "dataset/data\\chunk276.wav",
+            "transcription": "비빔밥 하나 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk277.wav",
+            "transcription": "팥빙수 하나, 망고 빙수 하나 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk278.wav",
+            "transcription": "죄송합니다. 지금 빙수는 안 되는데요."
+        },
+        {
+            "path": "dataset/data\\chunk279.wav",
+            "transcription": "여기요. 반찬 좀 더 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk280.wav",
+            "transcription": "저기요. 물 좀 더 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk281.wav",
+            "transcription": "물은 셀프예요."
+        },
+        {
+            "path": "dataset/data\\chunk282.wav",
+            "transcription": "숟가락 하나 더 주시겠어요?"
+        },
+        {
+            "path": "dataset/data\\chunk283.wav",
+            "transcription": "네, 숟가락 여기 있습니다."
+        },
+        {
+            "path": "dataset/data\\chunk284.wav",
+            "transcription": "물티슈 있나요?"
+        },
+        {
+            "path": "dataset/data\\chunk285.wav",
+            "transcription": "네, 있습니다. 가져다 드리겠습니다."
+        },
+        {
+            "path": "dataset/data\\chunk286.wav",
+            "transcription": "따뜻한 아메리카노 한 잔 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk287.wav",
+            "transcription": "드시고 가실 거예요?"
+        },
+        {
+            "path": "dataset/data\\chunk288.wav",
+            "transcription": "아니요, 가져갈 거예요."
+        },
+        {
+            "path": "dataset/data\\chunk289.wav",
+            "transcription": "빙수 포장 돼요?"
+        },
+        {
+            "path": "dataset/data\\chunk290.wav",
+            "transcription": "네, 됩니다."
+        },
+        {
+            "path": "dataset/data\\chunk291.wav",
+            "transcription": "딸기 빙수 하나 포장해 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk292.wav",
+            "transcription": "네, 나오면 진동벨로 알려 드리겠습니다."
+        },
+        {
+            "path": "dataset/data\\chunk293.wav",
+            "transcription": "숟가락 몇 개 넣어 드릴까요?"
+        },
+        {
+            "path": "dataset/data\\chunk294.wav",
+            "transcription": "두 개 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk295.wav",
+            "transcription": "토마토 주스 하나, 얼음 빼고 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk296.wav",
+            "transcription": "딸기 주스, 시럽 빼고 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk297.wav",
+            "transcription": "핫 초콜릿에 휘핑크림을 휘픙크림 올려 드릴까요?"
+        },
+        {
+            "path": "dataset/data\\chunk298.wav",
+            "transcription": "네, 휘핑크림 많이 주 올려 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk299.wav",
+            "transcription": "여기 비빔밥 하나 주시는데요. 고기는 빼고 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk300.wav",
+            "transcription": "비빔밥 하나, 고기 빼고요?"
+        },
+        {
+            "path": "dataset/data\\chunk301.wav",
+            "transcription": "네, 맞아요."
+        },
+        {
+            "path": "dataset/data\\chunk302.wav",
+            "transcription": "찾으시는 거 있으세요?"
+        },
+        {
+            "path": "dataset/data\\chunk303.wav",
+            "transcription": "바지를 하나 사고 싶은데요."
+        },
+        {
+            "path": "dataset/data\\chunk304.wav",
+            "transcription": "요즘 뭐가 제일 잘 나가요?"
+        },
+        {
+            "path": "dataset/data\\chunk305.wav",
+            "transcription": "이게 요즘 제일 인기가 많아요."
+        },
+        {
+            "path": "dataset/data\\chunk306.wav",
+            "transcription": "이거 입어 봐요 봐도 돼요?"
+        },
+        {
+            "path": "dataset/data\\chunk307.wav",
+            "transcription": "네, 저쪽에서 입어 보세요."
+        },
+        {
+            "path": "dataset/data\\chunk308.wav",
+            "transcription": "아주 잘 어울리시네요. 마음에 드세요?"
+        },
+        {
+            "path": "dataset/data\\chunk309.wav",
+            "transcription": "예쁜데 좀 큰 것 같아요. 작은 거 없어요?"
+        },
+        {
+            "path": "dataset/data\\chunk310.wav",
+            "transcription": "이 바지하고 티셔츠 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk311.wav",
+            "transcription": "네, 잠시만 기다려 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk312.wav",
+            "transcription": "이걸로 하시겠어요?"
+        },
+        {
+            "path": "dataset/data\\chunk313.wav",
+            "transcription": "네, 그런데 새 걸로 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk314.wav",
+            "transcription": "계산할게요."
+        },
+        {
+            "path": "dataset/data\\chunk315.wav",
+            "transcription": "네, 사만 팔천 원입니다. 결제 어떻게 하시겠습니까?"
+        },
+        {
+            "path": "dataset/data\\chunk316.wav",
+            "transcription": "카드 되죠?"
+        },
+        {
+            "path": "dataset/data\\chunk317.wav",
+            "transcription": "여기 설 서명해 주세요. 영수증 드릴까요?"
+        },
+        {
+            "path": "dataset/data\\chunk318.wav",
+            "transcription": "네, 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk319.wav",
+            "transcription": "이거 어제 샀는데 환불 돼요?"
+        },
+        {
+            "path": "dataset/data\\chunk320.wav",
+            "transcription": "네, 결제하신 카드와 영수증 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk321.wav",
+            "transcription": "이건 세일 상품이라 환불은 안 되고 교환만 가능한데요."
+        },
+        {
+            "path": "dataset/data\\chunk322.wav",
+            "transcription": "아, 그래요? 그럼 교환할게요."
+        },
+        {
+            "path": "dataset/data\\chunk323.wav",
+            "transcription": "다른 색도 있는데 보여 드릴까요?"
+        },
+        {
+            "path": "dataset/data\\chunk324.wav",
+            "transcription": "네, 무슨 색 있어요?"
+        },
+        {
+            "path": "dataset/data\\chunk325.wav",
+            "transcription": "하얀색으로 교환해 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk326.wav",
+            "transcription": "네, 새 걸로 갖다 드릴게요."
+        },
+        {
+            "path": "dataset/data\\chunk327.wav",
+            "transcription": "교환이나 환불 돼요?"
+        },
+        {
+            "path": "dataset/data\\chunk328.wav",
+            "transcription": "팩을 좀 사고 싶은데요. 세일하는 제품 있어요?"
+        },
+        {
+            "path": "dataset/data\\chunk329.wav",
+            "transcription": "이게 요즘 제일 잘 나가요."
+        },
+        {
+            "path": "dataset/data\\chunk330.wav",
+            "transcription": "여기 수분 크림 있지요? 어디에 있어요?"
+        },
+        {
+            "path": "dataset/data\\chunk331.wav",
+            "transcription": "손님, 죄송하지만 그 제품은 다 나갔는데요."
+        },
+        {
+            "path": "dataset/data\\chunk332.wav",
+            "transcription": "언제 다시 들어와요?"
+        },
+        {
+            "path": "dataset/data\\chunk333.wav",
+            "transcription": "이거 테스트해 봐요 봐도 돼요?"
+        },
+        {
+            "path": "dataset/data\\chunk334.wav",
+            "transcription": "네, 해 보세요."
+        },
+        {
+            "path": "dataset/data\\chunk335.wav",
+            "transcription": "피부가 좀 건조하고 어두운 편인데요."
+        },
+        {
+            "path": "dataset/data\\chunk336.wav",
+            "transcription": "비비크림 하나 추천해 주시겠어요?"
+        },
+        {
+            "path": "dataset/data\\chunk337.wav",
+            "transcription": "이게 잘 맞을 것 같+ 같은데 어떠세요?"
+        },
+        {
+            "path": "dataset/data\\chunk338.wav",
+            "transcription": "한국에 어떻게 오셨어요?"
+        },
+        {
+            "path": "dataset/data\\chunk339.wav",
+            "transcription": "여행 왔어요."
+        },
+        {
+            "path": "dataset/data\\chunk340.wav",
+            "transcription": "며칠 동안 계실 거예요?"
+        },
+        {
+            "path": "dataset/data\\chunk341.wav",
+            "transcription": "일주일 있을 거예요."
+        },
+        {
+            "path": "dataset/data\\chunk342.wav",
+            "transcription": "숙소는 어디세요?"
+        },
+        {
+            "path": "dataset/data\\chunk343.wav",
+            "transcription": "명동 호텔이에요."
+        },
+        {
+            "path": "dataset/data\\chunk344.wav",
+            "transcription": "짐 찾는 곳이 어디예요?"
+        },
+        {
+            "path": "dataset/data\\chunk345.wav",
+            "transcription": "에스컬레이터를 타고 아래층으로 내려가시면 있어요."
+        },
+        {
+            "path": "dataset/data\\chunk346.wav",
+            "transcription": "심 카드는 어디에+ 어디에서 살 수 있어요?"
+        },
+        {
+            "path": "dataset/data\\chunk347.wav",
+            "transcription": "저기 은행 옆에 심 카드 판매소가 있어요."
+        },
+        {
+            "path": "dataset/data\\chunk348.wav",
+            "transcription": "여권을 좀 주시겠습니까?"
+        },
+        {
+            "path": "dataset/data\\chunk349.wav",
+            "transcription": "여기 있습니다."
+        },
+        {
+            "path": "dataset/data\\chunk350.wav",
+            "transcription": "어느 자리로 드릴까요?"
+        },
+        {
+            "path": "dataset/data\\chunk351.wav",
+            "transcription": "창가 좌석으로 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk352.wav",
+            "transcription": "부치실+ 부치실 가방 있으십니까?"
+        },
+        {
+            "path": "dataset/data\\chunk353.wav",
+            "transcription": "네, 한 개 있어요."
+        },
+        {
+            "path": "dataset/data\\chunk354.wav",
+            "transcription": "가방 안에 보조배터리가 들어 있는데 괜찮으실 괜찮을까요?"
+        },
+        {
+            "path": "dataset/data\\chunk355.wav",
+            "transcription": "아니요, 보조배터리는 가지고 타셔야 돼요."
+        },
+        {
+            "path": "dataset/data\\chunk356.wav",
+            "transcription": "공항버스 매표소는 어디에 있어요?"
+        },
+        {
+            "path": "dataset/data\\chunk357.wav",
+            "transcription": "사 번 게이트 옆에 있습니다."
+        },
+        {
+            "path": "dataset/data\\chunk358.wav",
+            "transcription": "강남고속터미널에 가려면 몇 번 버스를 타야 돼요?"
+        },
+        {
+            "path": "dataset/data\\chunk359.wav",
+            "transcription": "육천 일 번이나 육천 십 오번 버스를 타면 타시면 돼요."
+        },
+        {
+            "path": "dataset/data\\chunk360.wav",
+            "transcription": "안녕하세요? 체크인하려고 하는데요."
+        },
+        {
+            "path": "dataset/data\\chunk361.wav",
+            "transcription": "네, 여권 좀 보여 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk362.wav",
+            "transcription": "방은 금연실이지요?"
+        },
+        {
+            "path": "dataset/data\\chunk363.wav",
+            "transcription": "네, 금연실입니다."
+        },
+        {
+            "path": "dataset/data\\chunk364.wav",
+            "transcription": "한강이 보이는 방으로 줄 수 있으세요?"
+        },
+        {
+            "path": "dataset/data\\chunk365.wav",
+            "transcription": "잠시만요. 네, 가능합니다."
+        },
+        {
+            "path": "dataset/data\\chunk366.wav",
+            "transcription": "전망 좋은 방으로 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk367.wav",
+            "transcription": "죄송하지만 전망 좋은 방은 다 찼습니다."
+        },
+        {
+            "path": "dataset/data\\chunk368.wav",
+            "transcription": "아침 식사는 어디에서 하나요?"
+        },
+        {
+            "path": "dataset/data\\chunk369.wav",
+            "transcription": "이 층 식당으로 가시면 됩니다."
+        },
+        {
+            "path": "dataset/data\\chunk370.wav",
+            "transcription": "아침 식사 시간은 몇 시까지예요?"
+        },
+        {
+            "path": "dataset/data\\chunk371.wav",
+            "transcription": "일곱 시부터 열 시까지입니다."
+        },
+        {
+            "path": "dataset/data\\chunk372.wav",
+            "transcription": "와이파이는 무료예요 무료예요?"
+        },
+        {
+            "path": "dataset/data\\chunk373.wav",
+            "transcription": "네, 무료로 이용하실 수 있습니다."
+        },
+        {
+            "path": "dataset/data\\chunk374.wav",
+            "transcription": "와이파이 와이파이 비밀번호가 뭐예요?"
+        },
+        {
+            "path": "dataset/data\\chunk375.wav",
+            "transcription": "일 이 삼 사 오입니다."
+        },
+        {
+            "path": "dataset/data\\chunk376.wav",
+            "transcription": "구백 이 호인데요. 헤어드라이기 헤어드라이어가 안 돼서요."
+        },
+        {
+            "path": "dataset/data\\chunk377.wav",
+            "transcription": "세면대 물이 잘 안 내려가는데요."
+        },
+        {
+            "path": "dataset/data\\chunk378.wav",
+            "transcription": "네, 곧 확인해 드리겠습니다."
+        },
+        {
+            "path": "dataset/data\\chunk379.wav",
+            "transcription": "수건 좀 주시겠어요?"
+        },
+        {
+            "path": "dataset/data\\chunk380.wav",
+            "transcription": "네, 구백 이 호 맞으십니까? 가져다 가져다 드리겠습니다."
+        },
+        {
+            "path": "dataset/data\\chunk381.wav",
+            "transcription": "지금 나간 나갔는데 방 청소 좀 해 주시겠어요?"
+        },
+        {
+            "path": "dataset/data\\chunk382.wav",
+            "transcription": "카드 키를 잃어버린 것 같아요."
+        },
+        {
+            "path": "dataset/data\\chunk383.wav",
+            "transcription": "새로 만들어 드리겠습니다. 몇 호실이 몇 호실이세요?"
+        },
+        {
+            "path": "dataset/data\\chunk384.wav",
+            "transcription": "방에 키를 놓고 나왔는데요."
+        },
+        {
+            "path": "dataset/data\\chunk385.wav",
+            "transcription": "다른 키를 드리겠습니다."
+        },
+        {
+            "path": "dataset/data\\chunk386.wav",
+            "transcription": "사용하시고 반납 부탁드립니다."
+        },
+        {
+            "path": "dataset/data\\chunk387.wav",
+            "transcription": "가방 좀 맡겨 맡겨도 될까요?"
+        },
+        {
+            "path": "dataset/data\\chunk388.wav",
+            "transcription": "네, 이쪽으로 갖다 가져다주시면 됩니다."
+        },
+        {
+            "path": "dataset/data\\chunk389.wav",
+            "transcription": "제 짐을 찾아가고 싶습니다."
+        },
+        {
+            "path": "dataset/data\\chunk390.wav",
+            "transcription": "네, 보관증을 보여 주십시오."
+        },
+        {
+            "path": "dataset/data\\chunk391.wav",
+            "transcription": "이십 오 일하고 이십 육 일에 콘서트를 하는데 언제 볼까요?"
+        },
+        {
+            "path": "dataset/data\\chunk392.wav",
+            "transcription": "이십 오 일 저녁에는 다른 일정이 있으니까 이십 육 일이 좋겠어요."
+        },
+        {
+            "path": "dataset/data\\chunk393.wav",
+            "transcription": "R석은 가격이 너무 비싸요."
+        },
+        {
+            "path": "dataset/data\\chunk394.wav",
+            "transcription": "그러게요. 우리 S석으로 예매해요."
+        },
+        {
+            "path": "dataset/data\\chunk395.wav",
+            "transcription": "안녕하세요, 인터넷으로 예매해서 티켓 찾으러 왔 왔는데요."
+        },
+        {
+            "path": "dataset/data\\chunk396.wav",
+            "transcription": "네, 어디에서 예매하셨어요?"
+        },
+        {
+            "path": "dataset/data\\chunk397.wav",
+            "transcription": "예스파크에서요."
+        },
+        {
+            "path": "dataset/data\\chunk398.wav",
+            "transcription": "저, 죄송한데 사진 좀 찍어 주시면 안 될까요?"
+        },
+        {
+            "path": "dataset/data\\chunk399.wav",
+            "transcription": "네, 찍어 드릴게요. 하나, 둘, 셋."
+        },
+        {
+            "path": "dataset/data\\chunk400.wav",
+            "transcription": "여기가 한국 기획사가 있는 건물이 맞나요?"
+        },
+        {
+            "path": "dataset/data\\chunk401.wav",
+            "transcription": "네, 맞아요. 저기 보이는 입구로 들어가시면 돼요."
+        },
+        {
+            "path": "dataset/data\\chunk402.wav",
+            "transcription": "들어가서 구경해도 되나요?"
+        },
+        {
+            "path": "dataset/data\\chunk403.wav",
+            "transcription": "네, 어서 들어오세요."
+        },
+        {
+            "path": "dataset/data\\chunk404.wav",
+            "transcription": "다섯 시 표 두 장으로 표 두 장 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk405.wav",
+            "transcription": "다섯 시 영화는 지금 매진입니다."
+        },
+        {
+            "path": "dataset/data\\chunk406.wav",
+            "transcription": "그다음 영화는 언제 해요?"
+        },
+        {
+            "path": "dataset/data\\chunk407.wav",
+            "transcription": "일곱 시 십 분 영화가 있습니다."
+        },
+        {
+            "path": "dataset/data\\chunk408.wav",
+            "transcription": "그럼 그걸로 두 장 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk409.wav",
+            "transcription": "주문 안 하신 손님 이쪽으로 오세요."
+        },
+        {
+            "path": "dataset/data\\chunk410.wav",
+            "transcription": "팝콘 어떤 맛으로 드릴까요?"
+        },
+        {
+            "path": "dataset/data\\chunk411.wav",
+            "transcription": "오리지널하고 캐러멜 맛 반반씩 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk412.wav",
+            "transcription": "이 아이돌 그룹 알지요?"
+        },
+        {
+            "path": "dataset/data\\chunk413.wav",
+            "transcription": "그럼요. 저도 팬이에요."
+        },
+        {
+            "path": "dataset/data\\chunk414.wav",
+            "transcription": "직접 본 적 있어요?"
+        },
+        {
+            "path": "dataset/data\\chunk415.wav",
+            "transcription": "아니요, 사진이랑 동영상으로만 봤어요."
+        },
+        {
+            "path": "dataset/data\\chunk416.wav",
+            "transcription": "직접 만나서 악수 한번 해 봤으면 좋겠어요."
+        },
+        {
+            "path": "dataset/data\\chunk417.wav",
+            "transcription": "저도 우리나라에서 팬 미팅이나 콘서트를 하면 꼭 갈 갈 거예요."
+        },
+        {
+            "path": "dataset/data\\chunk418.wav",
+            "transcription": "와, 부러워요. 저는 춤을 잘 못 춰요."
+        },
+        {
+            "path": "dataset/data\\chunk419.wav",
+            "transcription": "여기가 드라마 세트장입니다."
+        },
+        {
+            "path": "dataset/data\\chunk420.wav",
+            "transcription": "세트장이 굉장히 크네요."
+        },
+        {
+            "path": "dataset/data\\chunk421.wav",
+            "transcription": "이곳은 아나운서 체험을 하는 곳입니다."
+        },
+        {
+            "path": "dataset/data\\chunk422.wav",
+            "transcription": "저도 한번 해 보고 싶어요."
+        },
+        {
+            "path": "dataset/data\\chunk423.wav",
+            "transcription": "이쪽에 와서 서 보세요. 아주 예뻐 보여요."
+        },
+        {
+            "path": "dataset/data\\chunk424.wav",
+            "transcription": "조명을 받아서 그런가 봐요."
+        },
+        {
+            "path": "dataset/data\\chunk425.wav",
+            "transcription": "이 스튜 스+ 스튜디오에서는 드라마 녹화 중입니다."
+        },
+        {
+            "path": "dataset/data\\chunk426.wav",
+            "transcription": "저는 드라마 녹화하는 것 처음 봐요."
+        },
+        {
+            "path": "dataset/data\\chunk427.wav",
+            "transcription": "여기에서 드라마 ‘마인’을 찍었어요."
+        },
+        {
+            "path": "dataset/data\\chunk428.wav",
+            "transcription": "한번 꼭 와 보고 싶어요."
+        },
+        {
+            "path": "dataset/data\\chunk429.wav",
+            "transcription": "여기가 마지막 장면을 찍은 곳이래요."
+        },
+        {
+            "path": "dataset/data\\chunk430.wav",
+            "transcription": "그렇네요. 기억나요."
+        },
+        {
+            "path": "dataset/data\\chunk431.wav",
+            "transcription": "저기 서 있는 사람이 배우 이유라지요?"
+        },
+        {
+            "path": "dataset/data\\chunk432.wav",
+            "transcription": "네, 정말 인형 같아요."
+        },
+        {
+            "path": "dataset/data\\chunk433.wav",
+            "transcription": "지금 가서 사인 받아도 될까요?"
+        },
+        {
+            "path": "dataset/data\\chunk434.wav",
+            "transcription": "지금은 촬영 중이라서 안 될 것 같아요."
+        },
+        {
+            "path": "dataset/data\\chunk435.wav",
+            "transcription": "이 사진 좀 봐요."
+        },
+        {
+            "path": "dataset/data\\chunk436.wav",
+            "transcription": "정말 배우랑 같이 찍은 것처럼 나왔어요."
+        },
+        {
+            "path": "dataset/data\\chunk437.wav",
+            "transcription": "이 배우는 정말 잘생겼네요."
+        },
+        {
+            "path": "dataset/data\\chunk438.wav",
+            "transcription": "네, 실물도 잘생겼고 카메라도 잘 받은 받는 것 같아요."
+        },
+        {
+            "path": "dataset/data\\chunk439.wav",
+            "transcription": "아나운서 목소리 정말 좋았+ 좋았지요?"
+        },
+        {
+            "path": "dataset/data\\chunk440.wav",
+            "transcription": "네, 그 목소리에 반했어요."
+        },
+        {
+            "path": "dataset/data\\chunk441.wav",
+            "transcription": "뭐가 제일 재미있었어요?"
+        },
+        {
+            "path": "dataset/data\\chunk442.wav",
+            "transcription": "아나운서 체험요."
+        },
+        {
+            "path": "dataset/data\\chunk443.wav",
+            "transcription": "저는 드라마 세트장이 제일 재미있었어요."
+        },
+        {
+            "path": "dataset/data\\chunk444.wav",
+            "transcription": "한복 좀 빌려줘* 빌려 빌리려고 하는데요."
+        },
+        {
+            "path": "dataset/data\\chunk445.wav",
+            "transcription": "네, 여기서 골라 보세요."
+        },
+        {
+            "path": "dataset/data\\chunk446.wav",
+            "transcription": "해설 들으면서 구경하고 싶은데요."
+        },
+        {
+            "path": "dataset/data\\chunk447.wav",
+            "transcription": "여기 안내문+ 안내문을 보시고 시간에 맞춰 출발 장소에서 기다리세요."
+        },
+        {
+            "path": "dataset/data\\chunk448.wav",
+            "transcription": "음성 안내기를 빌릴 수 있을까요?"
+        },
+        {
+            "path": "dataset/data\\chunk449.wav",
+            "transcription": "네, 신분증이나 여권 주시겠어요?"
+        },
+        {
+            "path": "dataset/data\\chunk450.wav",
+            "transcription": "짐을 좀 맡기고 싶은데요."
+        },
+        {
+            "path": "dataset/data\\chunk451.wav",
+            "transcription": "일 층과 삼 층에 물품 보관함이 있으+ 있으니까 그걸 이용하세요."
+        },
+        {
+            "path": "dataset/data\\chunk452.wav",
+            "transcription": "저기 행사 포스터에 있는 문화 공연을 보고 싶은데요."
+        },
+        {
+            "path": "dataset/data\\chunk453.wav",
+            "transcription": "아, 저 공연을 보시려면 홈페이지에서 미리 신청하셔서 신청하셔야 돼요."
+        },
+        {
+            "path": "dataset/data\\chunk454.wav",
+            "transcription": "자유이용권 두 장 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk455.wav",
+            "transcription": "할인되는 카드 있으세요?"
+        },
+        {
+            "path": "dataset/data\\chunk456.wav",
+            "transcription": "이게 롤러코스터 줄이에요+ 줄이에요? 줄이 너무 기네요."
+        },
+        {
+            "path": "dataset/data\\chunk457.wav",
+            "transcription": "맞아요. 이게 이 공원에서 제일 인기가 많아요."
+        },
+        {
+            "path": "dataset/data\\chunk458.wav",
+            "transcription": "퍼레이드는 어디에서 시작해요?"
+        },
+        {
+            "path": "dataset/data\\chunk459.wav",
+            "transcription": "바이킹 옆에서 시작해요."
+        },
+        {
+            "path": "dataset/data\\chunk460.wav",
+            "transcription": "봄꽃 축제 기간은 언제예요?"
+        },
+        {
+            "path": "dataset/data\\chunk461.wav",
+            "transcription": "사 월 칠 일부터 십 이 일까지예요."
+        },
+        {
+            "path": "dataset/data\\chunk462.wav",
+            "transcription": "이 공연을 보고 싶은데요."
+        },
+        {
+            "path": "dataset/data\\chunk463.wav",
+            "transcription": "공연장은 어느 쪽으로 가야 돼요?"
+        },
+        {
+            "path": "dataset/data\\chunk464.wav",
+            "transcription": "나가셔서 왼쪽으로 쭉 가시면 돼요."
+        },
+        {
+            "path": "dataset/data\\chunk465.wav",
+            "transcription": "어디에서 사진 찍으면 제일 예뻐요?"
+        },
+        {
+            "path": "dataset/data\\chunk466.wav",
+            "transcription": "저기에서 찍으면 제일 잘 나와요."
+        },
+        {
+            "path": "dataset/data\\chunk467.wav",
+            "transcription": "PC방에 처음 왔는데요. 어떻게 이용하는 거예요?"
+        },
+        {
+            "path": "dataset/data\\chunk468.wav",
+            "transcription": "이 기계에서 시간 선택하시시고 결제하시면 돼요."
+        },
+        {
+            "path": "dataset/data\\chunk469.wav",
+            "transcription": "화면에 메뉴판이 있네요. 음식도 먹을 수 있나 봐요."
+        },
+        {
+            "path": "dataset/data\\chunk470.wav",
+            "transcription": "네, 자리에서 주문하면 가져다준대요."
+        },
+        {
+            "path": "dataset/data\\chunk471.wav",
+            "transcription": "이용 시간이 십 분 남았네요. 조금 더 연장할까요?"
+        },
+        {
+            "path": "dataset/data\\chunk472.wav",
+            "transcription": "네, 우리 삼십 분만 더 있다가 가요."
+        },
+        {
+            "path": "dataset/data\\chunk473.wav",
+            "transcription": "여기는 강아지들이 많네요. 들어가도 돼요?"
+        },
+        {
+            "path": "dataset/data\\chunk474.wav",
+            "transcription": "네, 그럼요. 여기는 애견 카페예요."
+        },
+        {
+            "path": "dataset/data\\chunk475.wav",
+            "transcription": "이 강아지는 이름이 뭐예요?"
+        },
+        {
+            "path": "dataset/data\\chunk476.wav",
+            "transcription": "쿠키예요. 두 살이에요."
+        },
+        {
+            "path": "dataset/data\\chunk477.wav",
+            "transcription": "와, 정말 귀엽네요. 이 과자 줘도 돼요?"
+        },
+        {
+            "path": "dataset/data\\chunk478.wav",
+            "transcription": "네, 조금만 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk479.wav",
+            "transcription": "저기 야구 경기 규칙을 잘 모르는데 괜찮을까요?"
+        },
+        {
+            "path": "dataset/data\\chunk480.wav",
+            "transcription": "규칙을 몰라도 응원만 해도 재미있대요."
+        },
+        {
+            "path": "dataset/data\\chunk481.wav",
+            "transcription": "저녁을 안 먹고 안 먹고 와서 배가 고프네요."
+        },
+        {
+            "path": "dataset/data\\chunk482.wav",
+            "transcription": "제가 뭐 좀 사 올게요."
+        },
+        {
+            "path": "dataset/data\\chunk483.wav",
+            "transcription": "우리 치맥 먹을까요? 매점에서 팔더라고요."
+        },
+        {
+            "path": "dataset/data\\chunk484.wav",
+            "transcription": "찜질방 성인 두 명이요."
+        },
+        {
+            "path": "dataset/data\\chunk485.wav",
+            "transcription": "야간은 만 원이고, 오전 다섯 시까지 이용할 수 있어요."
+        },
+        {
+            "path": "dataset/data\\chunk486.wav",
+            "transcription": "어디로 들어가면 돼요?"
+        },
+        {
+            "path": "dataset/data\\chunk487.wav",
+            "transcription": "여자 탈의실은 이쪽이에요."
+        },
+        {
+            "path": "dataset/data\\chunk488.wav",
+            "transcription": "식혜하고 맥반석 달걀하고 두 개씩 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk489.wav",
+            "transcription": "오천 원입니다."
+        },
+        {
+            "path": "dataset/data\\chunk490.wav",
+            "transcription": "이 동네가 한국 대학생들이 많이 오는 곳이래요."
+        },
+        {
+            "path": "dataset/data\\chunk491.wav",
+            "transcription": "예쁜 카페가 많아서 인기 있나 봐요."
+        },
+        {
+            "path": "dataset/data\\chunk492.wav",
+            "transcription": "이 식당 사장이 제가 좋아하는 가수예요."
+        },
+        {
+            "path": "dataset/data\\chunk493.wav",
+            "transcription": "팬들이 많이 오겠어요."
+        },
+        {
+            "path": "dataset/data\\chunk494.wav",
+            "transcription": "저 식당은 줄 서서 기다리는 사람이 많네요."
+        },
+        {
+            "path": "dataset/data\\chunk495.wav",
+            "transcription": "맛집인가 봐요."
+        },
+        {
+            "path": "dataset/data\\chunk496.wav",
+            "transcription": "이 거리에서 이 식당이 제일 유명하대요."
+        },
+        {
+            "path": "dataset/data\\chunk497.wav",
+            "transcription": "아, SNS에서 본 집이에요."
+        },
+        {
+            "path": "dataset/data\\chunk498.wav",
+            "transcription": "동대문 시장에 가 볼까요?"
+        },
+        {
+            "path": "dataset/data\\chunk499.wav",
+            "transcription": "네, 좋아요. 밤에 가면 더 싸대요."
+        },
+        {
+            "path": "dataset/data\\chunk500.wav",
+            "transcription": "고속버스터미널 지하에 가면 옷을 싸게 살 수 있대요."
+        },
+        {
+            "path": "dataset/data\\chunk501.wav",
+            "transcription": "네, 저도 들었어요. 우리 오늘 가 봐요."
+        },
+        {
+            "path": "dataset/data\\chunk502.wav",
+            "transcription": "화장품이 더 필요하다고 했지요? 오늘 사러 갈까요?"
+        },
+        {
+            "path": "dataset/data\\chunk503.wav",
+            "transcription": "지난번에는 명동에서 샀으니까 오늘은 신촌으로 가요."
+        },
+        {
+            "path": "dataset/data\\chunk504.wav",
+            "transcription": "오늘 저녁에는 이태원에 가 볼까요?"
+        },
+        {
+            "path": "dataset/data\\chunk505.wav",
+            "transcription": "네, 좋아요! 꼭 한번 구경하고 싶었어요."
+        },
+        {
+            "path": "dataset/data\\chunk506.wav",
+            "transcription": "와, 한강에는 자전거 타는 사람들이 많네요."
+        },
+        {
+            "path": "dataset/data\\chunk507.wav",
+            "transcription": "우리도 자전거 빌려서 탈까요?"
+        },
+        {
+            "path": "dataset/data\\chunk508.wav",
+            "transcription": "유람선을 타고 싶어요."
+        },
+        {
+            "path": "dataset/data\\chunk509.wav",
+            "transcription": "저 앞이 선창 선착장 것 같아요. 가 봐요."
+        },
+        {
+            "path": "dataset/data\\chunk510.wav",
+            "transcription": "한강 다리에서 분수가 나오네요."
+        },
+        {
+            "path": "dataset/data\\chunk511.wav",
+            "transcription": "네, 밤에는 조명을 켜서 더 예뻐요."
+        },
+        {
+            "path": "dataset/data\\chunk512.wav",
+            "transcription": "오늘 구경 정말 많이 했+ 했어요."
+        },
+        {
+            "path": "dataset/data\\chunk513.wav",
+            "transcription": "너무 많이 걸어서 다리가 좀 아파요."
+        },
+        {
+            "path": "dataset/data\\chunk514.wav",
+            "transcription": "저도요. 우리 벤치에 앉아서 좀 쉬어요."
+        },
+        {
+            "path": "dataset/data\\chunk515.wav",
+            "transcription": "이 동네에는 한오그릇* 한옥들이 많이 모여 있네요."
+        },
+        {
+            "path": "dataset/data\\chunk516.wav",
+            "transcription": "그래서 한옥 마을이라고 부른대요."
+        },
+        {
+            "path": "dataset/data\\chunk517.wav",
+            "transcription": "저기가 남대문이에요."
+        },
+        {
+            "path": "dataset/data\\chunk518.wav",
+            "transcription": "우리 여기 서서 남대문이 다 나오게 사진 찍어요."
+        },
+        {
+            "path": "dataset/data\\chunk519.wav",
+            "transcription": "인사동이에요. 저기 저는 여기 꼭 와 보고 싶었어요."
+        },
+        {
+            "path": "dataset/data\\chunk520.wav",
+            "transcription": "저도요. 옛날 건물이 많아서 재미있어요."
+        },
+        {
+            "path": "dataset/data\\chunk521.wav",
+            "transcription": "한국 전통찻집이 있네요."
+        },
+        {
+            "path": "dataset/data\\chunk522.wav",
+            "transcription": "무슨 차가 있는지 들어가 봐요."
+        },
+        {
+            "path": "dataset/data\\chunk523.wav",
+            "transcription": "네, 좋아요. 어떤 분+ 분위기인지 궁금하고"
+        },
+        {
+            "path": "dataset/data\\chunk524.wav",
+            "transcription": "한국 전통차도 마시고 싶어요."
+        },
+        {
+            "path": "dataset/data\\chunk525.wav",
+            "transcription": "바다를 보려고 바다를 보려면 어디로 가야 돼요?"
+        },
+        {
+            "path": "dataset/data\\chunk526.wav",
+            "transcription": "해운대나 광안리 해수욕장에 가 보세요."
+        },
+        {
+            "path": "dataset/data\\chunk527.wav",
+            "transcription": "그리고 달맞이길에 가면 바다가 보이는 예쁜 카페도 많아요."
+        },
+        {
+            "path": "dataset/data\\chunk528.wav",
+            "transcription": "가 볼 만한 곳을 좀 추천해 주시겠어요?"
+        },
+        {
+            "path": "dataset/data\\chunk529.wav",
+            "transcription": "태종+ 태종대나 동백섬+ 동백섬도 좋아요."
+        },
+        {
+            "path": "dataset/data\\chunk530.wav",
+            "transcription": "부산에서 유명한 음식이 뭐예요?"
+        },
+        {
+            "path": "dataset/data\\chunk531.wav",
+            "transcription": "밀면이 맛있는데요. 이 근처에 유명한 집이 있어요."
+        },
+        {
+            "path": "dataset/data\\chunk532.wav",
+            "transcription": "맛있는 생선 횟집을 알려 주세요."
+        },
+        {
+            "path": "dataset/data\\chunk533.wav",
+            "transcription": "네, 자갈치 시장에 가시면 돼요."
+        },
+        {
+            "path": "dataset/data\\chunk534.wav",
+            "transcription": "이거 어떻게 먹는 거예요?"
+        },
+        {
+            "path": "dataset/data\\chunk535.wav",
+            "transcription": "계란을 콩나물국밥에 넣어서 먹어요+ 먹어요?"
+        },
+        {
+            "path": "dataset/data\\chunk536.wav",
+            "transcription": "국밥은 나중에 따로 드시는 거에 거고요."
+        },
+        {
+            "path": "dataset/data\\chunk537.wav",
+            "transcription": "와! 반찬이 정말 많이 나오네요."
+        },
+        {
+            "path": "dataset/data\\chunk538.wav",
+            "transcription": "이 길에서 파는 거 다 먹어 보고 싶어요."
+        },
+        {
+            "path": "dataset/data\\chunk539.wav",
+            "transcription": "저도요. 다 맛있어 보이네요."
+        },
+        {
+            "path": "dataset/data\\chunk540.wav",
+            "transcription": "옛날 사람들도 이렇게 화려한 귀걸이를 했네요."
+        },
+        {
+            "path": "dataset/data\\chunk541.wav",
+            "transcription": "네, 금으로 이렇게 만들었다니 신기해요."
+        },
+        {
+            "path": "dataset/data\\chunk542.wav",
+            "transcription": "저기에 올라와 올라가서 사람들이 하늘의 별을 봤대요."
+        },
+        {
+            "path": "dataset/data\\chunk543.wav",
+            "transcription": "아, 그래요? 그런데 저 위에 어떻게 올라갔을+ 갔을까요?"
+        },
+        {
+            "path": "dataset/data\\chunk544.wav",
+            "transcription": "이 탑 어디에서 본 것 같지 않아요?"
+        },
+        {
+            "path": "dataset/data\\chunk545.wav",
+            "transcription": "한국 동전에서 본 것 같아요."
+        },
+        {
+            "path": "dataset/data\\chunk546.wav",
+            "transcription": "우리 황남빵 두+ 두 박스 살까요?"
+        },
+        {
+            "path": "dataset/data\\chunk547.wav",
+            "transcription": "황남빵은 경주에서만 살 수 있대요. 한 박스 더 사요."
+        },
+        {
+            "path": "dataset/data\\chunk548.wav",
+            "transcription": "성산일출봉 정상까지 올라가는 데 얼마나 걸려요?"
+        },
+        {
+            "path": "dataset/data\\chunk549.wav",
+            "transcription": "이십에서 삼십 분쯤 걸릴 거예요."
+        },
+        {
+            "path": "dataset/data\\chunk550.wav",
+            "transcription": "오늘 한라산에 올라가면 백록+ 백록담을 볼 수 있을까요?"
+        },
+        {
+            "path": "dataset/data\\chunk551.wav",
+            "transcription": "날씨가 좋으니까 볼 수 있을 거예요."
+        },
+        {
+            "path": "dataset/data\\chunk552.wav",
+            "transcription": "와! 바다색이 정말 예쁘네요."
+        },
+        {
+            "path": "dataset/data\\chunk553.wav",
+            "transcription": "맞아요. 모래가 반짝거리는 게 너무 예뻐요."
+        },
+        {
+            "path": "dataset/data\\chunk554.wav",
+            "transcription": "귤 맛 귤 많이 땄어요?"
+        },
+        {
+            "path": "dataset/data\\chunk555.wav",
+            "transcription": "생각보다 어려워서 많이 못 땄는데 재미있으 있네요."
+        },
+        {
+            "path": "dataset/data\\chunk556.wav",
+            "transcription": "배고파요? 진짜?"
+        },
+        {
+            "path": "dataset/data\\chunk557.wav",
+            "transcription": "배고파요. 진짜."
+        },
+        {
+            "path": "dataset/data\\chunk558.wav",
+            "transcription": "밥 먹었어?"
+        },
+        {
+            "path": "dataset/data\\chunk559.wav",
+            "transcription": "밥 먹었어."
+        },
+        {
+            "path": "dataset/data\\chunk560.wav",
+            "transcription": "목 말라요?"
+        },
+        {
+            "path": "dataset/data\\chunk561.wav",
+            "transcription": "목 말라요."
+        },
+        {
+            "path": "dataset/data\\chunk562.wav",
+            "transcription": "아이가 넘어졌어요."
+        },
+        {
+            "path": "dataset/data\\chunk563.wav",
+            "transcription": "아이가 넘어졌어요?"
+        },
+        {
+            "path": "dataset/data\\chunk564.wav",
+            "transcription": "지금 가도 돼요?"
+        },
+        {
+            "path": "dataset/data\\chunk565.wav",
+            "transcription": "지금 가도 돼요."
+        },
+        {
+            "path": "dataset/data\\chunk566.wav",
+            "transcription": "많이 아파요."
+        },
+        {
+            "path": "dataset/data\\chunk567.wav",
+            "transcription": "많이 아파요?"
+        },
+        {
+            "path": "dataset/data\\chunk568.wav",
+            "transcription": "순두부 먹고 싶어요."
+        },
+        {
+            "path": "dataset/data\\chunk569.wav",
+            "transcription": "순두부 먹고 싶어요?"
+        },
+        {
+            "path": "dataset/data\\chunk570.wav",
+            "transcription": "오늘이 수요일이에요+ 수요일이에요?"
+        },
+        {
+            "path": "dataset/data\\chunk571.wav",
+            "transcription": "오늘이 수요일이에요."
+        },
+        {
+            "path": "dataset/data\\chunk572.wav",
+            "transcription": "문 잠겨 있어요."
+        },
+        {
+            "path": "dataset/data\\chunk573.wav",
+            "transcription": "문이 잠겨 있어요?"
+        },
+        {
+            "path": "dataset/data\\chunk574.wav",
+            "transcription": "편의점에서 이거 사도 돼?"
+        },
+        {
+            "path": "dataset/data\\chunk575.wav",
+            "transcription": "편의+ 편의점에서 이거 사도 돼."
+        },
+        {
+            "path": "dataset/data\\chunk576.wav",
+            "transcription": "백 십 오 호 방이 어+ 어두워요+ 어두워요."
+        },
+        {
+            "path": "dataset/data\\chunk577.wav",
+            "transcription": "백 십 오 호 방이 어두워요?"
+        },
+        {
+            "path": "dataset/data\\chunk578.wav",
+            "transcription": "에어콘 때문에 추워요."
+        },
+        {
+            "path": "dataset/data\\chunk579.wav",
+            "transcription": "에어콘 때문에 추워요?"
+        },
+        {
+            "path": "dataset/data\\chunk580.wav",
+            "transcription": "한 시간 늦을 것 같아요."
+        },
+        {
+            "path": "dataset/data\\chunk581.wav",
+            "transcription": "한 시간 늦을 것 같아요?"
+        },
+        {
+            "path": "dataset/data\\chunk582.wav",
+            "transcription": "화장실 가고 싶어요."
+        },
+        {
+            "path": "dataset/data\\chunk583.wav",
+            "transcription": "화장실 가고 싶어요?"
+        },
+        {
+            "path": "dataset/data\\chunk584.wav",
+            "transcription": "엄마가 아이에게 우유를 먹여요."
+        },
+        {
+            "path": "dataset/data\\chunk585.wav",
+            "transcription": "엄마가 아이에게 우유를 먹어요?"
+        },
+        {
+            "path": "dataset/data\\chunk586.wav",
+            "transcription": "형이 동생을 밀어요."
+        },
+        {
+            "path": "dataset/data\\chunk587.wav",
+            "transcription": "형이 동생을 밀어요?"
+        },
+        {
+            "path": "dataset/data\\chunk588.wav",
+            "transcription": "할머니가 무말랭이를 말려요."
+        },
+        {
+            "path": "dataset/data\\chunk589.wav",
+            "transcription": "할머니가 무말랭이를 말려요?"
+        },
+        {
+            "path": "dataset/data\\chunk590.wav",
+            "transcription": "할아버지가 할아버지께서 신문을 읽어요?"
+        },
+        {
+            "path": "dataset/data\\chunk591.wav",
+            "transcription": "할아버지께서 신문을 읽어요."
+        },
+        {
+            "path": "dataset/data\\chunk592.wav",
+            "transcription": "구부리면 허리가 아파요?"
+        },
+        {
+            "path": "dataset/data\\chunk593.wav",
+            "transcription": "구부리면 허리가 아파요."
+        },
+        {
+            "path": "dataset/data\\chunk594.wav",
+            "transcription": "요한 씨, 오늘 오후 한 시에 뭐해요?"
+        },
+        {
+            "path": "dataset/data\\chunk595.wav",
+            "transcription": "식당에 가요. 점심을 먹어요."
+        },
+        {
+            "path": "dataset/data\\chunk596.wav",
+            "transcription": "그러면 오후 세 시에는 뭐해+ 뭐해요?"
+        },
+        {
+            "path": "dataset/data\\chunk597.wav",
+            "transcription": "백화점에 가요. 그리고 쇼핑해요."
+        },
+        {
+            "path": "dataset/data\\chunk598.wav",
+            "transcription": "여섯 시에는 뭐해요?"
+        },
+        {
+            "path": "dataset/data\\chunk599.wav",
+            "transcription": "커피숍에 가요. 그리고 커피를 마셔요."
+        },
+        {
+            "path": "dataset/data\\chunk600.wav",
+            "transcription": "수안 씨, 오늘 오후 두 시에 뭐해요?"
+        },
+        {
+            "path": "dataset/data\\chunk601.wav",
+            "transcription": "친구와 커피숍에 가요."
+        },
+        {
+            "path": "dataset/data\\chunk602.wav",
+            "transcription": "그러면+ 그러면 오후 네 시에는 뭐해요?"
+        },
+        {
+            "path": "dataset/data\\chunk603.wav",
+            "transcription": "공원에 가요. 그리고 산책해요."
+        },
+        {
+            "path": "dataset/data\\chunk604.wav",
+            "transcription": "집에 가요. 그리고 숙제해요."
+        },
+        {
+            "path": "dataset/data\\chunk605.wav",
+            "transcription": "육 월 팔 일 팔 일에 시험이 있어요."
+        },
+        {
+            "path": "dataset/data\\chunk606.wav",
+            "transcription": "그래요? 무슨 요일이에요?"
+        },
+        {
+            "path": "dataset/data\\chunk607.wav",
+            "transcription": "금요일이에요."
+        },
+        {
+            "path": "dataset/data\\chunk608.wav",
+            "transcription": "몇 시에 시험이 있+ 있어요?"
+        },
+        {
+            "path": "dataset/data\\chunk609.wav",
+            "transcription": "오전 아홉 시예요. 여덟 시 반까지 오세요."
+        },
+        {
+            "path": "dataset/data\\chunk610.wav",
+            "transcription": "무엇을 준비해요?"
+        },
+        {
+            "path": "dataset/data\\chunk611.wav",
+            "transcription": "3시간 뒤 날씨 알려 줘."
+        },
+        {
+            "path": "dataset/data\\chunk612.wav",
+            "transcription": "3월 14일은 무슨 날이에 날이야?"
+        },
+        {
+            "path": "dataset/data\\chunk613.wav",
+            "transcription": "4월 15일이 무슨 요일이야?"
+        },
+        {
+            "path": "dataset/data\\chunk614.wav",
+            "transcription": "4월에 쉬는 날 있어?"
+        },
+        {
+            "path": "dataset/data\\chunk615.wav",
+            "transcription": "5분 카운트다운 시+ 시작해 줘."
+        },
+        {
+            "path": "dataset/data\\chunk616.wav",
+            "transcription": "5분 후에 약 먹기라고 알려 줘."
+        },
+        {
+            "path": "dataset/data\\chunk617.wav",
+            "transcription": "5월에 쉬는 날 며칠 있어?"
+        },
+        {
+            "path": "dataset/data\\chunk618.wav",
+            "transcription": "700회 당첨자 수 알려 줘."
+        },
+        {
+            "path": "dataset/data\\chunk619.wav",
+            "transcription": "700회 회로* 로또 번호 알려 줘."
+        },
+        {
+            "path": "dataset/data\\chunk620.wav",
+            "transcription": "70년대 팝음악 들려 줘."
+        },
+        {
+            "path": "dataset/data\\chunk621.wav",
+            "transcription": "내일 12시에 피부과 가기 일정 등록해 줘."
+        },
+        {
+            "path": "dataset/data\\chunk622.wav",
+            "transcription": "내일 4시까지 일정 삭제해 줘."
+        },
+        {
+            "path": "dataset/data\\chunk623.wav",
+            "transcription": "내일 서울 초미+ 초미세먼지 지수 알려 줘."
+        },
+        {
+            "path": "dataset/data\\chunk624.wav",
+            "transcription": "내일 아침에 알람 몇 시야?"
+        },
+        {
+            "path": "dataset/data\\chunk625.wav",
+            "transcription": "내일 오후에 오후 3시 서울 날씨 알려 줘."
+        },
+        {
+            "path": "dataset/data\\chunk626.wav",
+            "transcription": "내일 제주도 강수 확률 어때?"
+        },
+        {
+            "path": "dataset/data\\chunk627.wav",
+            "transcription": "내일 제주도 미세먼지 어때?"
+        },
+        {
+            "path": "dataset/data\\chunk628.wav",
+            "transcription": "내일 제주에 비 소식 있어?"
+        },
+        {
+            "path": "dataset/data\\chunk629.wav",
+            "transcription": "내일 모레 날짜 알려 줘."
+        },
+        {
+            "path": "dataset/data\\chunk630.wav",
+            "transcription": "너 몇 살이야?"
+        },
+        {
+            "path": "dataset/data\\chunk631.wav",
+            "transcription": "오늘 3시 일정 캘린더에서 삭제해 줘."
+        },
+        {
+            "path": "dataset/data\\chunk632.wav",
+            "transcription": "오늘 3시에 회어이* 있어?"
+        },
+        {
+            "path": "dataset/data\\chunk633.wav",
+            "transcription": "오늘 날씨 어때?"
+        },
+        {
+            "path": "dataset/data\\chunk634.wav",
+            "transcription": "오늘 날씨와 어울리는 노래 틀어 줘."
+        },
+        {
+            "path": "dataset/data\\chunk635.wav",
+            "transcription": "오늘 뉴스 알려 줘."
+        },
+        {
+            "path": "dataset/data\\chunk636.wav",
+            "transcription": "오늘 뉴욕 날씨 좋아?"
+        },
+        {
+            "path": "dataset/data\\chunk637.wav",
+            "transcription": "오늘 마+ 마스크 써야 해+ 해?"
+        },
+        {
+            "path": "dataset/data\\chunk638.wav",
+            "transcription": "오늘 며칠이야?"
+        },
+        {
+            "path": "dataset/data\\chunk639.wav",
+            "transcription": "오늘 별자리 운세 알려 줘."
+        },
+        {
+            "path": "dataset/data\\chunk640.wav",
+            "transcription": "오늘 수요일이야?"
+        },
+        {
+            "path": "dataset/data\\chunk641.wav",
+            "transcription": "오늘 습도는 어때?"
+        },
+        {
+            "path": "dataset/data\\chunk642.wav",
+            "transcription": "오늘 엔화 환율 알려 줘."
+        },
+        {
+            "path": "dataset/data\\chunk643.wav",
+            "transcription": "오늘 오후 3시 일정 등록해 줘."
+        },
+        {
+            "path": "dataset/data\\chunk644.wav",
+            "transcription": "오늘 우산 필요해?"
+        },
+        {
+            "path": "dataset/data\\chunk645.wav",
+            "transcription": "오늘 일정 삭제해 줘."
+        },
+        {
+            "path": "dataset/data\\chunk646.wav",
+            "transcription": "오늘 일정 알려 줘."
+        },
+        {
+            "path": "dataset/data\\chunk647.wav",
+            "transcription": "오늘 장 봐야 한다고 나와의 채팅방에 메모해 줘."
+        },
+        {
+            "path": "dataset/data\\chunk648.wav",
+            "transcription": "오늘 저녁에 약속 있어?"
+        },
+        {
+            "path": "dataset/data\\chunk649.wav",
+            "transcription": "오늘 주가 얼마야?"
+        },
+        {
+            "path": "dataset/data\\chunk650.wav",
+            "transcription": "이번 달 물병자리 운세 알려 줘."
+        },
+        {
+            "path": "dataset/data\\chunk651.wav",
+            "transcription": "이번 주 날씨 어때?"
+        },
+        {
+            "path": "dataset/data\\chunk652.wav",
+            "transcription": "이번 주 돼지띠 운세 어 알려 줘."
+        },
+        {
+            "path": "dataset/data\\chunk653.wav",
+            "transcription": "이번 주 로또 번호가 번호 알려 줘."
+        },
+        {
+            "path": "dataset/data\\chunk654.wav",
+            "transcription": "이번 주 물병자리 운세 알려 줘."
+        },
+        {
+            "path": "dataset/data\\chunk655.wav",
+            "transcription": "이번 주말에 눈 와?"
+        },
+        {
+            "path": "dataset/data\\chunk656.wav",
+            "transcription": "이+ 이번 주말에 부산 날씨 어때?"
+        },
+        {
+            "path": "dataset/data\\chunk657.wav",
+            "transcription": "이전 뉴스 틀어 줘."
+        },
+        {
+            "path": "dataset/data\\chunk658.wav",
+            "transcription": "이전 채널로 바꿔."
+        },
+        {
+            "path": "dataset/data\\chunk659.wav",
+            "transcription": "이전 팟+ 팟캐트 팟+ 팟캐스트 틀어 줘."
+        }
+    ]
+}
