@@ -9,7 +9,7 @@
 
     <!-- 텍스트를 보여주는 텍스트뷰 -->
     <TextView
-        android:id="@+id/tvRecognizedSpeech"
+        android:id="@+id/wordTextView"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:background="@drawable/rounded_rectangle2"
@@ -53,7 +53,6 @@
                 android:id="@+id/btnPrevious"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:text="이전"
                 android:background="@drawable/left"
                 android:layout_margin="10dp" />
 
@@ -62,7 +61,6 @@
                 android:id="@+id/btnRecord"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:text="녹음"
                 android:background="@drawable/recording"
                 android:layout_margin="10dp" />
 
@@ -71,7 +69,6 @@
                 android:id="@+id/btnNext"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:text="다음"
                 android:background="@drawable/right"
                 android:layout_margin="8dp" />
         </LinearLayout>
@@ -93,6 +90,7 @@
             android:textSize="20dp"
             android:background="@drawable/image_rounded_corner"
             android:layout_margin="8dp" />
+    </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>
