@@ -3,59 +3,75 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:gravity="center">
+    android:padding="0dp"
+    android:gravity="center"
+    android:background="@drawable/main_background">
 
-    <!-- 낱말을 표시하는 텍스트뷰 -->
+    <!-- 텍스트를 보여주는 텍스트뷰 -->
     <TextView
         android:id="@+id/wordTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="안녕하세요"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="40dp" />
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@drawable/rounded_rectangle2"
+        android:gravity="center"
+        android:layout_margin="20dp"
+        android:padding="10dp"
+        android:text="텍스트"
+        android:textColor="#000000"
+        android:textSize="30sp" />
 
     <!-- 녹음된 파일 개수를 표시하는 텍스트뷰 -->
     <TextView
         android:id="@+id/fileCountTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="현재 녹음된 파일: 0 / 100 개"
+        android:text="현재 녹음된 파일: 0 개"
+        android:textAlignment="center"
+        android:background = "@drawable/image_rounded_corner"
         android:textSize="18sp"
-        android:layout_marginBottom="20dp" />
 
-    <!-- 녹음 및 이전/다음 버튼을 포함하는 레이아웃 -->
+        android:layout_marginBottom="10dp" />
+
+    <!-- 4개의 버튼을 위한 레이아웃 -->
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
-
-        <!-- 이전 버튼 -->
-        <Button
-            android:id="@+id/btnPrevious"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/background"
+        android:layout_marginTop="-50dp">
+    <!-- 녹음 및 이전/다음 버튼을 포함하는 레이아웃 -->
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="이전"
-            android:layout_margin="8dp" />
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="120dp">
 
-        <!-- 녹음 버튼 -->
-        <Button
-            android:id="@+id/btnRecord"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="녹음"
-            android:layout_margin="8dp" />
+            <!-- 이전 버튼 -->
+            <Button
+                android:id="@+id/btnPrevious"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/left"
+                android:layout_margin="10dp" />
 
-        <!-- 다음 버튼 -->
-        <Button
-            android:id="@+id/btnNext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="다음"
-            android:layout_margin="8dp" />
-    </LinearLayout>
+            <!-- 녹음 버튼 -->
+            <Button
+                android:id="@+id/btnRecord"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:background="@drawable/recording"
+                android:layout_margin="10dp" />
+
+            <!-- 다음 버튼 -->
+            <Button
+                android:id="@+id/btnNext"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/right"
+                android:layout_margin="8dp" />
+        </LinearLayout>
 
     <!-- 학습 버튼과 저장 버튼을 나란히 배치하는 레이아웃 -->
     <LinearLayout
@@ -68,10 +84,13 @@
         <!-- 학습 버튼 -->
         <Button
             android:id="@+id/btnLearn"
-            android:layout_width="wrap_content"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:text="학습"
+            android:text="학습 하기"
+            android:textSize="20dp"
+            android:background="@drawable/image_rounded_corner"
             android:layout_margin="8dp" />
+    </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

@@ -3,21 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@drawable/main_background">
 
     <!-- 상단 중앙 로고 텍스트 -->
     <TextView
         android:id="@+id/logoTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="스피티"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        android:textColor="@android:color/black"
+        android:layout_width="320dp"
+        android:layout_height="200dp"
+        android:background="@drawable/logo"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="40dp" />
+        android:layout_marginTop="0dp" />
 
     <!-- 음성 인식 버튼, 학습하기 버튼, 학습 관리 버튼을 가로로 배치 -->
     <LinearLayout

@@ -12,14 +12,22 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.chaquo.python.Python
-import com.chaquo.python.android.AndroidPlatform
 import android.media.AudioFormat
 import android.media.MediaRecorder
 import java.io.FileOutputStream
 import java.io.IOException
 import android.media.MediaPlayer
 import android.speech.tts.TextToSpeech  // TextToSpeech import
+import android.util.Log
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.ChildEventListener
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
+import java.io.ByteArrayOutputStream
+import java.io.File
+import java.time.Instant
 import java.util.Locale  // Locale import
 
 
@@ -46,6 +54,37 @@ class SpeechActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_speech)
 
+        val database = FirebaseDatabase.getInstance()
+        val myRef = database.getReference("signals")
+
+        myRef.addChildEventListener(object : ChildEventListener {
+            override fun onChildAdded(dataSnapshot: DataSnapshot, previousChildName: String?) {
+                val signalData = dataSnapshot.value as? Map<*,*>
+                val userId = signalData?.get("userId") as? String
+                val message = signalData?.get("message") as? String
+                val timestamp = signalData?.get("timestamp") as? Long
+
+
+                val currentTime = Instant.now().epochSecond
+                println(currentTime)
+                println(timestamp)
+                // 타임스탬프가 현재 시간 이후인 경우에만 처리
+                if (timestamp != null && timestamp >= currentTime) {
+                    if (userId != null && message != null) {
+                        tvRecognizedSpeech.text = message
+                        Toast.makeText(this@SpeechActivity, "신호를 받았습니다: $message", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+
+            override fun onChildChanged(dataSnapshot: DataSnapshot, previousChildName: String?) {}
+            override fun onChildRemoved(dataSnapshot: DataSnapshot) {}
+            override fun onChildMoved(dataSnapshot: DataSnapshot, previousChildName: String?) {}
+            override fun onCancelled(databaseError: DatabaseError) {
+                Log.w("FirebaseSignal", "loadSignal:onCancelled", databaseError.toException())
+            }
+        })
+
         // 권한 확인 및 요청
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.RECORD_AUDIO), REQUEST_RECORD_AUDIO_PERMISSION)
@@ -63,52 +102,58 @@ class SpeechActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         // 녹음 파일 재생 버튼 클릭 이벤트
         btnPlay.setOnClickListener {
-            val dataFolder = getExternalFilesDir(Environment.DIRECTORY_MUSIC)?.absolutePath ?: run {
-                Toast.makeText(this, "파일 경로를 찾을 수 없습니다.", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-            outputFile = "$dataFolder/test.wav"
+            val userId = FirebaseAuth.getInstance().currentUser?.uid ?: "unknown_user"
+            val storageRef = FirebaseStorage.getInstance().reference.child("audio/$userId/test/test.wav")
 
-            if (outputFile.isNotEmpty()) {
-                playRecording(outputFile) // 녹음된 파일 재생
-            } else {
-                Toast.makeText(this, "재생할 파일이 없습니다.", Toast.LENGTH_SHORT).show()
-            }
+            // Firebase Storage에서 파일 다운로드
+            val localFile = File.createTempFile("test", "wav")
+            storageRef.getFile(localFile)
+                .addOnSuccessListener {
+                    // 다운로드가 완료되면 파일 재생
+                    playRecording(localFile.absolutePath)
+                }
+                .addOnFailureListener {
+                    Toast.makeText(this, "파일을 가져오는데 실패했습니다.", Toast.LENGTH_SHORT).show()
+                }
         }
 
         // 녹음 버튼 클릭 이벤트
+        // 녹음 버튼 클릭 이벤트
         btnRecord.setOnClickListener {
-            // 폴더 경로 정의 (핸드폰 Music 폴더에 녹음 파일 저장)
-            val dataFolder = getExternalFilesDir(Environment.DIRECTORY_MUSIC)?.absolutePath ?: run {
-                Toast.makeText(this, "파일 경로를 찾을 수 없습니다.", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
+            val userId = FirebaseAuth.getInstance().currentUser?.uid ?: "unknown_user"
+            val database = FirebaseDatabase.getInstance().getReference("users").child(userId)
 
-            if (isRecording) {
-                stopRecording()
-
-                // Chaquopy Python 플랫폼 시작 (안드로이드 플랫폼으로 설정)
-                if (!Python.isStarted()) {
-                    Python.start(AndroidPlatform(this))  // 'this'는 현재 Activity의 context
+            // Firebase에서 'train' 값을 가져옴
+            database.child("train").get().addOnSuccessListener { dataSnapshot ->
+                val trainValue = dataSnapshot.getValue(Int::class.java) ?: 0 // 기본값 0
+                if (trainValue == 0) {
+                    // 'train' 값이 0이면 일반 모델로 실행하겠다는 알림을 띄움
+                    if (isRecording) {
+                        stopRecording()
+                    } else {
+                        // 권한 확인 후 녹음 시작
+                        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) {
+                            Toast.makeText(this, "일반 모델로 실행하겠습니다.", Toast.LENGTH_SHORT).show()
+                            startRecording()
+                        } else {
+                            Toast.makeText(this, "녹음 권한이 필요합니다.", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                } else if (trainValue == 1) {
+                    // 'train' 값이 1이면 원래 실행되던 코드 실행
+                    if (isRecording) {
+                        stopRecording()
+                    } else {
+                        // 권한 확인 후 녹음 시작
+                        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) {
+                            startRecording()
+                        } else {
+                            Toast.makeText(this, "녹음 권한이 필요합니다.", Toast.LENGTH_SHORT).show()
+                        }
+                    }
                 }
-
-                // Chaquopy로 Python 스크립트 실행
-                val python = Python.getInstance()
-                val pythonCode = python.getModule("predict")
-
-                // Python 코드 실행
-                val result = pythonCode.callAttr("main", dataFolder)
-
-                Handler(Looper.getMainLooper()).postDelayed({
-                    tvRecognizedSpeech.text = result.toString()
-                }, 3000)
-            } else {
-                // 권한 확인 후 녹음 시작
-                if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) {
-                    startRecording(dataFolder)
-                } else {
-                    Toast.makeText(this, "녹음 권한이 필요합니다.", Toast.LENGTH_SHORT).show()
-                }
+            }.addOnFailureListener {
+                Toast.makeText(this, "Firebase에서 'train' 값을 가져오는 데 실패했습니다.", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -149,8 +194,8 @@ class SpeechActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         }
     }
 
-    private fun startRecording(dataFolder: String) {
-        val sampleRate = 44100  // 샘플레이트
+    private fun startRecording() {
+        val sampleRate = 44100  // 44.1kHz 샘플 레이트
         val channelConfig = AudioFormat.CHANNEL_IN_MONO
         val audioFormat = AudioFormat.ENCODING_PCM_16BIT
         val bufferSize = AudioRecord.getMinBufferSize(sampleRate, channelConfig, audioFormat) * 2
@@ -166,25 +211,24 @@ class SpeechActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         audioRecord = AudioRecord(MediaRecorder.AudioSource.MIC, sampleRate, channelConfig, audioFormat, bufferSize)
 
-
-        outputFile = "$dataFolder/test.wav"
-        val outputStream = FileOutputStream(outputFile)
-
+        val outputStream = ByteArrayOutputStream()  // ByteArrayOutputStream 사용
         val buffer = ByteArray(bufferSize)
 
-        // WAV 파일 헤더 작성
+        // 먼저 더미 헤더를 작성하고 메모리에 기록
         val header = createWavFileHeader(0, 0, sampleRate, 1, 16)
         outputStream.write(header)
 
         // 녹음 시작
         audioRecord.startRecording()
         isRecording = true
-        Toast.makeText(this, "녹음 중..", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this@SpeechActivity, "음성 인식 중 입니다.", Toast.LENGTH_SHORT).show()
 
-        // 녹음 스레드
+        // 녹음 스레드 실행
         recordingThread = Thread {
             try {
                 var totalAudioLen: Long = 0
+                val headerSize = 44  // WAV 헤더 크기
+
                 while (isRecording) {
                     val read = audioRecord.read(buffer, 0, buffer.size)
                     if (read > 0) {
@@ -193,10 +237,12 @@ class SpeechActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                     }
                 }
 
-                // 녹음 종료 후 WAV 헤더 업데이트
-                val totalDataLen = totalAudioLen + 44 - 8
-                updateWavHeader(outputFile, totalAudioLen, totalDataLen, sampleRate, 1, 16)
-                outputStream.close()
+                // 총 데이터 길이와 파일 크기를 계산
+                val totalDataLen = totalAudioLen + headerSize - 8
+                updateWavHeader(outputStream, totalAudioLen, totalDataLen, sampleRate, 1, 16)
+
+                // 녹음이 끝난 후 Firebase에 업로드
+                uploadToFirebase(outputStream.toByteArray())
 
             } catch (e: IOException) {
                 e.printStackTrace()
@@ -205,13 +251,62 @@ class SpeechActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         recordingThread.start()
     }
 
+
+    // Firebase에 파일 업로드 함수
+    private fun uploadToFirebase(audioData: ByteArray) {
+        val userId = FirebaseAuth.getInstance().currentUser?.uid ?: "unknown_user"
+        val storageRef = FirebaseStorage.getInstance().reference.child("audio/$userId/test/test.wav")
+
+        val uploadTask = storageRef.putBytes(audioData)  // ByteArray로 바로 업로드
+        uploadTask.addOnSuccessListener {
+            Toast.makeText(this, "파일 업로드 완료", Toast.LENGTH_SHORT).show()
+        }.addOnFailureListener {
+            Toast.makeText(this, "파일 업로드 실패", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun startFirebaseSignalListener() {
+        val database = FirebaseDatabase.getInstance()
+        val userId = FirebaseAuth.getInstance().currentUser?.uid ?: "unknown_user"  // 현재 사용자 ID 가져오기
+        val userSignalRef = database.getReference("signals").child(userId)
+
+        userSignalRef.addChildEventListener(object : ChildEventListener {
+            override fun onChildAdded(dataSnapshot: DataSnapshot, previousChildName: String?) {
+                val signalData = dataSnapshot.getValue(String::class.java)
+                val message = signalData ?: "No message"
+
+                println("유저 신호 감지됨: $message")
+                tvRecognizedSpeech.text = message
+            }
+
+            override fun onChildChanged(dataSnapshot: DataSnapshot, previousChildName: String?) {}
+            override fun onChildRemoved(dataSnapshot: DataSnapshot) {}
+            override fun onChildMoved(dataSnapshot: DataSnapshot, previousChildName: String?) {}
+            override fun onCancelled(databaseError: DatabaseError) {
+                Log.w("FirebaseSignal", "loadSignal:onCancelled", databaseError.toException())
+            }
+        })
+    }
+
     private fun stopRecording() {
+        val database = FirebaseDatabase.getInstance()
+        val myRef = database.getReference("signals")
+        val userId = FirebaseAuth.getInstance().currentUser?.uid ?: "unknown_user"
+        Log.d("UserID", "User ID: $userId")
+        myRef.removeValue()
+        // 사용자 ID와 "study" 신호를 Firebase에 전송
+        val signalData = mapOf(
+            "userId" to userId,
+            "action" to "speech"
+        )
+        myRef.push().setValue(signalData)
         isRecording = false
         audioRecord.stop()
         audioRecord.release()
         recordingThread.join()
 
-        Toast.makeText(this, "녹음 완료", Toast.LENGTH_LONG).show()
+        startFirebaseSignalListener()
+        Toast.makeText(this, "음성 인식 완료", Toast.LENGTH_LONG).show()
     }
 
     // WAV 파일 헤더 생성
@@ -268,17 +363,12 @@ class SpeechActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     }
 
     // WAV 파일 헤더 업데이트
-    private fun updateWavHeader(filePath: String, totalAudioLen: Long, totalDataLen: Long, longSampleRate: Int, channels: Int, bitRate: Int) {
+    private fun updateWavHeader(outputStream: ByteArrayOutputStream, totalAudioLen: Long, totalDataLen: Long, longSampleRate: Int, channels: Int, bitRate: Int) {
         val header = createWavFileHeader(totalAudioLen, totalDataLen, longSampleRate, channels, bitRate)
-        try {
-            val raf = java.io.RandomAccessFile(filePath, "rw")
-            raf.seek(0) // 파일 맨 처음으로 이동하여 헤더 작성
-            raf.write(header)
-            raf.close()
-        } catch (e: IOException) {
-            e.printStackTrace()
-        }
+        val headerBytes = header.copyOfRange(0, 44)  // WAV 헤더
+        System.arraycopy(headerBytes, 0, outputStream.toByteArray(), 0, headerBytes.size)
     }
+
 
     // 녹음된 파일 재생 함수
     private fun playRecording(filePath: String) {
@@ -294,6 +384,7 @@ class SpeechActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             }
         }
     }
+
 
     // TTS 객체 해제
     override fun onDestroy() {
